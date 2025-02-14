@@ -32,6 +32,7 @@ jobs:
         pip install pyvirtualdisplay
         pip install chromedriver_autoinstaller
         pip install openpyxl
+        pip install selenium
         
     - name: Run Python script
       run: python periodic_runner_main.py  # Replace with your actual Python script name
