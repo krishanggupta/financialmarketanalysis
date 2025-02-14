@@ -34,7 +34,8 @@ jobs:
         pip install openpyxl
         pip install selenium
         pip install tzlocal
-        
+        pip install scipy
+        pip install pillow
     - name: Run Python script
       run: python periodic_runner_main.py  # Replace with your actual Python script name
 
