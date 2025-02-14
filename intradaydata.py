@@ -83,3 +83,5 @@ class Intraday:
         mydata['timestamp']=mydata.index
         mydata.reset_index(drop=True,inplace=True)
         return mydata
+    
+

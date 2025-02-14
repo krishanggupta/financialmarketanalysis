@@ -31,6 +31,8 @@ class Returns:
         self.dataframe = dataframe
         os.makedirs(self.output_folder, exist_ok=True)
 
+        self.bps_formula={'ZN':16, 'FGBL':100}
+
     def get_session(self, timestamp):
         hour = timestamp.hour
         # minute = timestamp.minute
@@ -105,32 +107,32 @@ class Returns:
         return stats_csv
 
     # Close Price when the session ended - Open Price when the session started
-    def _calculate_return_bps(self, group):
-        return abs(group["Close"].iloc[-1]-group["Open"].iloc[0]) * 16
+    def _calculate_return_bps(self, group,bps_factor):
+        return abs(group["Close"].iloc[-1]-group["Open"].iloc[0]) * bps_factor
 
-    def get_daily_session_returns(self, df):
+    def get_daily_session_returns(self, df,bps_factor):
         returns = (
             df.groupby([df["timestamp"].dt.date, "session"], group_keys=False)
-            .apply(self._calculate_return_bps, include_groups=False)
+            .apply(self._calculate_return_bps, bps_factor=bps_factor,include_groups=False)
             .reset_index()
         )
         returns.columns = ["date", "session", "return"]
         return returns
 
-    def get_daily_returns(self, df):
+    def get_daily_returns(self, df, bps_factor):
         daily_returns_all = (
             df.groupby(df["timestamp"].dt.date)
-            .apply(self._calculate_return_bps)
+            .apply(self._calculate_return_bps,bps_factor)
             .reset_index()
         )
         daily_returns_all.columns = ["date", "return"]
         return daily_returns_all
 
-    def plot_daily_session_returns(self, filtered_df, tickersymbol_val, interval_val):
+    def plot_daily_session_returns(self, filtered_df, tickersymbol_val, interval_val,bps_factor):
 
         start_date = (filtered_df["timestamp"].dt.date.tolist())[0]
         end_date = (filtered_df["timestamp"].dt.date.tolist())[-1]
-        print(start_date, end_date)
+        #print(start_date, end_date)
         sessions = self.sessions
 
         plt.figure(figsize=(24, 18))
@@ -143,7 +145,7 @@ class Returns:
         for i, session in enumerate(sessions, 1):
             plt.subplot(3, 2, i)
             if session != "All day":
-                daily_session_returns = self.get_daily_session_returns(filtered_df)
+                daily_session_returns = self.get_daily_session_returns(filtered_df,bps_factor)
                 session_returns = daily_session_returns[
                     daily_session_returns["session"] == session
                 ]["return"]
@@ -153,7 +155,7 @@ class Returns:
                 ]["date"].iloc[-1]
             else:
 
-                daily_returns_all = self.get_daily_returns(filtered_df)
+                daily_returns_all = self.get_daily_returns(filtered_df,bps_factor)
                 session_returns = daily_returns_all["return"]
                 latest_return = session_returns.iloc[-1]
                 latest_date = daily_returns_all["date"].iloc[-1]
@@ -261,16 +263,16 @@ class Returns:
                 f"{tickersymbol_val}_{interval_val}_Returns_stats.csv",
             )
         )
-        print(df_stats.round(1))
+        #print(df_stats.round(1))
 
     
 
-    def get_daily_session_volatility_returns(self, df):
+    def get_daily_session_volatility_returns(self, df,bps_factor):
         
         session_volatility_df = df.groupby([df["timestamp"].dt.date, "session"]).agg(
             {"High": ["max"], "Low": ["min"]}
         )
-        session_volatility_df["return"] = 16 * (
+        session_volatility_df["return"] = bps_factor * (
             session_volatility_df["High"]["max"] - session_volatility_df["Low"]["min"]
         )
         session_volatility_df = session_volatility_df.reset_index()
@@ -278,18 +280,18 @@ class Returns:
         session_volatility_df = session_volatility_df.sort_values(["date", "session"])
         return session_volatility_df
 
-    def get_daily_volatility_returns(self, df):
+    def get_daily_volatility_returns(self, df,bps_factor):
         all_df = df.groupby([df["timestamp"].dt.date]).agg(
             {"High": ["max"], "Low": ["min"]}
         )
-        all_df["return"] = 16 * (all_df["High"]["max"] - all_df["Low"]["min"])
+        all_df["return"] = bps_factor * (all_df["High"]["max"] - all_df["Low"]["min"])
         all_df = all_df.reset_index()
         all_df.columns = ["date", "high", "low", "return"]
         all_df = all_df.sort_values(["date"])
         return all_df
 
     def plot_daily_session_volatility_returns(
-        self, filtered_df, tickersymbol_val, interval_val
+        self, filtered_df, tickersymbol_val, interval_val,bps_factor
     ):
                 
         start_date = (filtered_df["timestamp"].dt.date.tolist())[0]
@@ -313,7 +315,7 @@ class Returns:
             if skip_sessions==False:
                 plt.subplot(3, 2, i)
             if session == "All day":
-                all_volatility_df = self.get_daily_volatility_returns(filtered_df)
+                all_volatility_df = self.get_daily_volatility_returns(filtered_df,bps_factor=16)
                 session_returns = all_volatility_df["return"]
                 latest_custom_days_return = all_volatility_df.iloc[:].loc[  #-15
                     :, ["date", "return"]
@@ -338,7 +340,7 @@ class Returns:
                 latest_date = all_volatility_df["date"].iloc[-1]
             else:
                 session_volatility_df = self.get_daily_session_volatility_returns(
-                    filtered_df
+                    filtered_df,bps_factor
                 )
                 
                 session_returns = session_volatility_df.loc[
@@ -413,15 +415,6 @@ class Returns:
                 label="Latest Volty. Return",
             )
 
-            # plt.axvline(
-            #     x=mean,
-            #     color="black",
-            #     linestyle="--",
-            #     linewidth=1.5,
-            #     alpha=0.7,
-            #     label="Mean Volty. Return",
-            # )
-            
 
             plt.title(f"{session}", fontsize=18)
             plt.xlabel("Session return in TV bps", fontsize=16)
@@ -495,7 +488,7 @@ class Returns:
                 f"{tickersymbol_val}_{interval_val}_Volatility_Returns_stats.csv",
             )
         )
-        print(df_stats.round(1))
+        #print(df_stats.round(1))
 
 
     def tag_events(self, ev, pc):
@@ -514,6 +507,8 @@ class Returns:
         events_df = events_df.sort_values("timestamp")
 
         # Outer merge based on timestamp
+        # print('pricedf',price_df)
+        # print('events_df',events_df)
         final_df = pd.merge(price_df, events_df, on="timestamp", how="outer")
 
         # Sort the final DataFrame by timestamp

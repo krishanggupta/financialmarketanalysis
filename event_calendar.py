@@ -12,20 +12,34 @@ import os
 import traceback as trb
 #from returns_main import input_folder
 
-def FormatDate(DateStr):
+def StartWebscrapper(**kwargs): 
     """
-    Convert Date from default to YYYY-MM-DD
+    Runner function for ChangeTimezone and PrepareCalendar functions
     """
-    months_dict={}
-    month_name=['January', 'February', 'March', 'April', 
-                'May', 'June', 'July', 'August', 'September',
-                'October', 'November', 'December']
-    month_val = ['0' + str(i) if i < 10 else str(i) for i in range(1, 13)]
-    #month_val = [i[0:3] for i in month_name]
-    for name,val in zip(month_name,month_val):
-        months_dict[name]=val
-    MyDateParts = DateStr.split(' ')
-    return "-".join([MyDateParts[3], months_dict[MyDateParts[1]], MyDateParts[2]])
+
+    MyTargetTimezone=kwargs.get('TargetTimezoneValue')
+    all_timezones=kwargs.get('all_timezones')
+    # Call the function to change the timezone
+    (default, current)= ChangeTimezone(**kwargs)
+
+    # Check if the timezone was updated successfully
+    if current != MyTargetTimezone:
+        print(f'Unable to change timezone. Data will be shown as per {default}')
+        try:
+            kwargs['TargetTimezoneName']=all_timezones[default]
+        except:
+            kwargs['TargetTimezoneName']=="UnavailableTimeZone"
+
+    MaxAttempts=3
+    for _ in range(MaxAttempts):
+        try:
+            return PrepareCalendar(**kwargs)
+        except Exception as e:
+            print('Some error occurred in fetching data. Retrying...')
+            print(e)
+            trb.print_exc()
+            continue
+
 
 def ChangeTimezone(**kwargs):  # Default value for the timezone
     """
@@ -81,35 +95,6 @@ def ChangeTimezone(**kwargs):  # Default value for the timezone
     return (default, current)
 
 
-def StartWebscrapper(**kwargs): 
-    """
-    Runner function for ChangeTimezone and PrepareCalendar functions
-    """
-
-    MyTargetTimezone=kwargs.get('TargetTimezoneValue')
-    all_timezones=kwargs.get('all_timezones')
-    # Call the function to change the timezone
-    (default, current)= ChangeTimezone(**kwargs)
-
-    # Check if the timezone was updated successfully
-    if current != MyTargetTimezone:
-        print(f'Unable to change timezone. Data will be shown as per {default}')
-        try:
-            kwargs['TargetTimezoneName']=all_timezones[default]
-        except:
-            kwargs['TargetTimezoneName']=="UnavailableTimeZone"
-
-    MaxAttempts=3
-    for _ in range(MaxAttempts):
-        try:
-            return PrepareCalendar(**kwargs)
-        except Exception as e:
-            print('Some error occurred in fetching data. Retrying...')
-            print(e)
-            trb.print_exc()
-            continue
-        
-
 def PrepareCalendar(**kwargs):
         
         """
@@ -142,6 +127,7 @@ def PrepareCalendar(**kwargs):
         mydf.dropna(inplace=True)
         mydf = mydf.replace('®', '', regex=True)#regex replaces even if the sign is inside the text and not just the sign.
         mydf['Tier']=mydf['Tier'].mask(mydf['Tier']=='N/A').ffill() #If tier is N/A, then replace it with not null value that came immediately before that N/A cell.
+        #mydf=AddTimestamp(mydf.copy())
         return StoreCalendar(mydf.copy(),**kwargs)
 
 
@@ -204,7 +190,8 @@ def GetValues(**kwargs):
                     try:
                         checkstr=str(row_prettify[row_prettify.find('<span'):row_prettify.find('</span>')])
                         foundtier=store_dic[checkstr[checkstr.find('class'):checkstr.find('>')]]
-                    except:
+                    except Exception as e:
+                        print(e)
                         foundtier='N/A'
                 
                 row_data.append(foundtier)
@@ -213,6 +200,37 @@ def GetValues(**kwargs):
         print("Table with id 'calendar' not found.")
     return table_data
 
+def AddTimezone(df,**kwargs):
+    target_tz_value=kwargs.get('TargetTimezoneValue')
+    target_tz_detail=all_timezones_details[target_tz_value]
+    df[df.columns[0]]=pd.to_datetime(df[df.columns[0]])
+    df[df.columns[0]] = df[df.columns[0]].dt.tz_localize(target_tz_detail)  # Timezone Aware
+    #df[df.columns[0]] = df[df.columns[0]].dt.tz_convert(target_tz_detail)
+    return df
+
+
+def AddTimestamp(df,**kwargs):
+    #print(df)
+    df.columns = df.columns.str.strip().str.lower()
+    df=df.dropna(how='all')
+    df['date']=df['date'].ffill()
+    df['only_date'] = df[df.columns[0]].apply(lambda x: " ".join(list(str(x).split())[1:]) if len(str(x))>8 else "" )
+    df['only_date'] = df['only_date'].replace('',None)
+    df['only_date'] = df['only_date'].ffill()
+
+    df['only_time'] = df[df.columns[0]].apply(lambda x: list(str(pd.to_datetime(x)).split())[1] if len(str(x))==8 else "" )
+    df['only_time'] = df['only_time'].replace('',None)
+    df['only_time'] = df['only_time'].ffill()
+    df['datetime']=df['only_date'].astype(str)+' '+df['only_time'].astype(str)
+    df=df.dropna(subset=['only_time'])#drop row if time value is missing is None somewhere in the row.
+    #print(df)
+    df.datetime=pd.to_datetime(df.datetime)
+    df['date']=df.datetime
+    df.drop(inplace=True,axis=1,columns=['only_date','only_time','datetime'])
+    df.rename({'date':'datetime'},inplace=True)
+    #df.rename({'datetime',f'datetime as per {kwargs.get('TargetTimezoneName')}'})
+    df.columns=df.columns.str.strip().str.upper()
+    return AddTimezone(df,**kwargs)
 
 def FilterByCountries(cal_df,**kwargs):
     """
@@ -224,17 +242,19 @@ def FilterByCountries(cal_df,**kwargs):
 
     # Return calendar with All Countries as it is
     if get_country==['All Countries']:
-        Filtered_df=cal_df
+        Filtered_df=cal_df.copy()
 
     # Return calendar with filtered countries such that row's country value is in filtered country 
     # or 
     # row is the row with Date (not time)
     else:
-        Filtered_df = cal_df[
-            ((cal_df[cal_df.columns[1]].isin(get_country)) | (cal_df[cal_df.columns[0]].str.len()>8))
-            ]
+        Filtered_df=cal_df.copy()
+        for _,country_name in enumerate(Filtered_df.columns):
+            if country_name in ['Country','country','COUNTRY']:
+                break
+        Filtered_df = cal_df[(cal_df[cal_df.columns[1]].isin(get_country))| (cal_df[country_name]=="")]
 
-    return (cal_df,Filtered_df)
+    return [cal_df,Filtered_df]
 
 
 def StoreCalendar(cal_df,**kwargs):
@@ -260,7 +280,10 @@ def StoreCalendar(cal_df,**kwargs):
         for index,df in enumerate(alldf):
             # Dont display "Country" column if single country selected for filter.
             if display_country_boolean==False and index==1 and len(get_country)==1: 
-                df.drop(['Country'],axis=1,inplace=True)
+                if 'COUNTRY' in df.columns:
+                    df.drop('COUNTRY',axis=1,inplace=True)
+                if 'Country' in df.columns:
+                    df.drop('Country',axis=1,inplace=True)
             
             # Convert columns to CAPITAL
             df.columns = df.columns.str.upper()
@@ -273,15 +296,32 @@ def StoreCalendar(cal_df,**kwargs):
             # If Filtered df with filterd countries
             elif index==1:
                 output_file_name=kwargs.get('output_file_name')
+
+            df=AddTimestamp(df,**kwargs)
                 
             merged_name,merged_df=MergeCalendar(df,output_file_name,**kwargs)
+            merged_df.columns=merged_df.columns.str.upper()
+            #merged_df.rename(columns={'DATE':'DATETIME'},inplace=True)
+            merged_df.reset_index(drop=True,inplace=True)
+            
+            merged_df[merged_df.columns[0]]=merged_df[merged_df.columns[0]].astype(str)
             merged_df.to_excel(os.path.join(output_directory_name,f"{merged_name}.xlsx"),index=False)
+            merged_df.to_csv(os.path.join(output_directory_name,f"{merged_name}.csv"),index=False)
 
+            # Ignore the below step. It was solving the error.
+            merged_df2=pd.read_excel(os.path.join(output_directory_name,f"{merged_name}.xlsx"))
+            merged_df2=merged_df2[~merged_df2['EVENTS'].isna()]
+            merged_df2.to_excel(os.path.join(output_directory_name,f"{merged_name}.xlsx"),index=False)
+            merged_df2.to_csv(os.path.join(output_directory_name,f"{merged_name}.csv"),index=False)
+            
+            
         driver.quit()
         return alldf
 
+
       
 def MergeCalendar(new,new_path,**kwargs):
+    #print(new)
     """
     Merges the newly obtained calendar data with old data (if there).
     If the timezone and filtered_countries both the parameters match, only then the merge happens. 
@@ -297,20 +337,39 @@ def MergeCalendar(new,new_path,**kwargs):
 
     # Scan Input_data for old calendar file path. If not found, take old calendar as empty dataframe
     old=pd.DataFrame()
+    flag=False
     for entry in os.scandir(opdc):
         if entry.is_file() and entry.name.endswith('.xlsx') and (entry.name.split('_'))[0]==new_tz and (entry.name.split('_'))[1]==new_country:
-            print(entry)
+            #print(entry)
             old_path=os.path.join(opdc,entry.name)
             old=pd.read_excel(old_path).copy()
+            flag=True
             break
     
+    merggeddf=new
     # If old calendar is not found, return new calendar as merged calendar
-    if old.shape[0]!=0:
+    if flag==True:
+        try:
+            for key in all_timezones:
+                if all_timezones[key]==new_tz:
+                    target_tz_value=key
+                    target_tz_detail=all_timezones_details[target_tz_value]
+                    break
+            target_tz_detail=all_timezones_details[target_tz_value]
+            old[old.columns[0]]=pd.to_datetime(old[old.columns[0]])
+            old[old.columns[0]] = old[old.columns[0]].dt.tz_localize(target_tz_detail)  # Adjust as needed
+            #old[old.columns[0]] = old[old.columns[0]].dt.tz_convert(target_tz_detail)
+
+        except TypeError: #Already tz_aware.
+            old[old.columns[0]] = old[old.columns[0]].dt.tz_convert(target_tz_detail)
+
+
         # Merge old and new calendar
+        new.rename({'DATE':'DATETIME'})
         merggeddf=MergeCalendar_helper(old,new)
 
         # # Delete the old calendar file
-        file_path=old_path
+        file_path=old_path #excel
         try:
             os.remove(file_path)
             print(f"{file_path} has been deleted successfully.")
@@ -321,15 +380,36 @@ def MergeCalendar(new,new_path,**kwargs):
         except Exception as e:
             print(f"Error: {e}")
             trb.print_exc()
-    
-    else:
-        merggeddf=new
-    
+        # csv
+        file_path2=old_path.replace('.xlsx','.csv') #excel_path only.
+        try:
+            os.remove(file_path2)
+            print(f"{file_path2} has been deleted successfully.")
+        except FileNotFoundError:
+            print(f"{file_path2} does not exist.")
+        except PermissionError:
+            print(f"Permission denied: Cannot delete {file_path2}.")
+        except Exception as e:
+            print(f"Error: {e}")
+            trb.print_exc()
+
     # Get start and end dates from merged calendar
-    finaldatesdf=(merggeddf[merggeddf['DATE'].str.len()>8])
-    finaldatesdf.reset_index(drop=True,inplace=True)
-    final_start_date=FormatDate(finaldatesdf.iloc[0,0])
-    final_end_date=FormatDate(finaldatesdf.iloc[-1,0])
+    # finaldatesdf=(merggeddf[merggeddf[merggeddf.columns[0]].dt.date])
+    # finaldatesdf.reset_index(drop=True,inplace=True)
+    # Ensure the column is in datetime format
+    merggeddf.rename({'DATE':'DATETIME'},inplace=True)
+    print(merggeddf.columns)
+    #merggeddf=merggeddf.sort_values(by=(merggeddf.columns[0]))
+    merggeddf[merggeddf.columns[0]] = pd.to_datetime(merggeddf[merggeddf.columns[0]])
+    merggeddf.index=merggeddf[merggeddf.columns[0]]
+    merggeddf.sort_index(inplace=True)
+    merggeddf.reset_index(drop=True,inplace=True)
+    print('mergeddf',merggeddf)
+
+    # Extract the first and last date (ignoring the time part)
+    final_start_date = str(merggeddf[merggeddf.columns[0]].dt.date.iloc[0])
+    final_end_date = str(merggeddf[merggeddf.columns[0]].dt.date.iloc[-1])
+
     finalname = new_tz+'_'+new_country+'_trad_eco_cal_'+final_start_date+'_to_'+final_end_date
 
     # Return the merged calendar
@@ -337,38 +417,58 @@ def MergeCalendar(new,new_path,**kwargs):
     
 
 def MergeCalendar_helper(olddf,newdf):
-   
-    # Filter out dates from 'DATE' and remove rows with time in old and new calendar
-    old_datesdf=(olddf[olddf['DATE'].str.len()>8])
-    #old_datesdf=old_datesdf.dropna()
-
-    new_datesdf=(newdf[newdf['DATE'].str.len()>8])
-    #new_datesdf=new_datesdf.dropna()
-
-    # Find the first common date in both calendars
-    common_dates = set(old_datesdf['DATE']).intersection(set(new_datesdf['DATE']))
-    if not common_dates:
-        # No common date, return olddf as-is
-        return pd.concat([olddf,newdf],ignore_index=True)
-    
-    # Find the earliest common date
-    earliest_common_date = min(common_dates)
-
-    # Get the index of the row where the date matches the earliest common date
-    old_end_index = olddf.loc[olddf['DATE'] == earliest_common_date].index[0]
-
-    # Slice the olddf to get all rows before the found index
-    old_part = olddf.iloc[:old_end_index]
-    
-    # Get all rows of newdf starting from the index corresponding to earliest common date
-    new_start_index = newdf.loc[newdf['DATE'] == earliest_common_date].index[0]
-    new_part = newdf.iloc[new_start_index:]
-
+    olddf.columns=olddf.columns.str.upper()
+    newdf.columns=newdf.columns.str.upper()
     # Combine the old and new parts
-    mergeddf = pd.concat([old_part, new_part], ignore_index=True)
+    print(olddf.columns)
+    print(newdf.columns)
+    olddf.rename(columns={'DATE':'DATETIME'},inplace=True)
+    newdf.rename(columns={'DATE':'DATETIME'},inplace=True)
+    if 'COUNTRY' in olddf.columns:
+        olddf=olddf[['DATETIME','COUNTRY','EVENTS','ACTUAL','CONSENSUS','FORECAST','TIER']]
+        newdf=newdf[['DATETIME','COUNTRY','EVENTS','ACTUAL','CONSENSUS','FORECAST','TIER']]
+    else:
+        olddf=olddf[['DATETIME','EVENTS','ACTUAL','CONSENSUS','FORECAST','TIER']]
+        newdf=newdf[['DATETIME','EVENTS','ACTUAL','CONSENSUS','FORECAST','TIER']]
 
-    # Return merged calendar
-    return mergeddf
+    finalcsv = pd.concat([olddf,newdf], ignore_index=True,axis=0)
+    print('final:')
+    print(finalcsv)
+
+    # Remove duplicate rows if new rows modify the previous ones.
+    if 'country' or 'Country' or 'COUNTRY' in finalcsv.columns:
+        finalcsv.drop_duplicates(subset=list(finalcsv.columns[:3]),keep='last',inplace=True)
+    else:
+        finalcsv.drop_duplicates(subset=list(finalcsv.columns[:2]),keep='last',inplace=True)
+    #not_allowed=["",None]
+    #finalcsv=finalcsv[(finalcsv.date is not in not_allowed) & (finalcsv.date is not in not_allowed)
+    finalcsv.dropna(inplace=True,how='all') 
+    finalcsv.index=finalcsv[finalcsv.columns[0]]
+    finalcsv.index = pd.to_datetime(finalcsv.index)
+    finalcsv.sort_index(inplace=True)
+    finalcsv.reset_index(drop=True,inplace=True)
+    finalcsv.rename(columns={'DATE':'DATETIME'},inplace=True)
+    
+    finalcsv.columns = finalcsv.columns.str.lower()
+    # Check if all but 1 columns are none and remove those rows.
+    
+    return finalcsv
+
+
+def FormatDate(DateStr):
+    """
+    Convert Date from default to YYYY-MM-DD if required. (Not used in the code)
+    """
+    months_dict={}
+    month_name=['January', 'February', 'March', 'April', 
+                'May', 'June', 'July', 'August', 'September',
+                'October', 'November', 'December']
+    month_val = ['0' + str(i) if i < 10 else str(i) for i in range(1, 13)]
+    #month_val = [i[0:3] for i in month_name]
+    for name,val in zip(month_name,month_val):
+        months_dict[name]=val
+    MyDateParts = DateStr.split(' ')
+    return "-".join([MyDateParts[3], months_dict[MyDateParts[1]], MyDateParts[2]])
 
 
 
@@ -403,4 +503,38 @@ all_timezones= {
     'UTC +12': 'FJT',            # Fiji Time
     'UTC +13': 'TOT',            # Tonga Time
     'UTC +14': 'LINT'            # Line Islands Time
+}
+
+
+all_timezones_details={
+    'UTC -12': 'Etc/GMT+12',        # Baker Island Time
+    'UTC -11': 'Pacific/Pago_Pago', # Samoa Standard Time
+    'UTC -10': 'Pacific/Honolulu',  # Hawaii-Aleutian Standard Time
+    'UTC -9': 'America/Anchorage',  # Alaska Standard Time
+    'UTC -8': 'America/Los_Angeles', # Pacific Standard Time
+    'UTC -7': 'America/Denver',     # Mountain Standard Time
+    'UTC -6': 'America/Chicago',    # Central Standard Time
+    'UTC -5': 'US/Eastern',   # Eastern Standard Time
+    'UTC -4': 'America/Halifax',    # Atlantic Standard Time
+    'UTC -3': 'America/Argentina/Buenos_Aires', # Argentina Time
+    'UTC -2': 'Atlantic/South_Georgia', # South Georgia Time
+    'UTC 0': 'UTC',                 # Coordinated Universal Time
+    'UTC +1': 'Europe/Paris',       # Central European Time
+    'UTC +2': 'Europe/Athens',      # Eastern European Time
+    'UTC +3': 'Europe/Moscow',      # Moscow Standard Time
+    'UTC +3:30': 'Asia/Tehran',     # Iran Standard Time
+    'UTC +5': 'Asia/Karachi',       # Pakistan Standard Time
+    'UTC +5:30': 'Asia/Kolkata',    # Indian Standard Time
+    'UTC +5:45': 'Asia/Kathmandu',  # Nepal Time
+    'UTC +6': 'Asia/Dhaka',         # Bangladesh Standard Time
+    'UTC +7': 'Asia/Bangkok',       # Indochina Time
+    'UTC +8': 'Asia/Shanghai',      # China Standard Time
+    'UTC +9': 'Asia/Tokyo',         # Japan Standard Time
+    'UTC +9:30': 'Australia/Darwin', # Australian Central Standard Time
+    'UTC +10': 'Australia/Sydney',  # Australian Eastern Standard Time
+    'UTC +10:30': 'Australia/Lord_Howe', # Lord Howe Standard Time
+    'UTC +12': 'Pacific/Fiji',      # Fiji Time
+    'UTC +13': 'Pacific/Tongatapu', # Tonga Time
+    'UTC +14': 'Pacific/Kiritimati' # Line Islands Time
+
 }

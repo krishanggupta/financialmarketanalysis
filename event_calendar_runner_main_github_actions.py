@@ -45,8 +45,6 @@ def runner(**kwargs):
     session.get(URL)
     time.sleep(60)
 
-
-
     # Set Parameters
     OutputDirectory=kwargs.get('OutputDirectory')
     TargetTimezone=kwargs.get('TargetTimezone')

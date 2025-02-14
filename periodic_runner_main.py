@@ -3,9 +3,9 @@ import os
 import shutil #deleting directories
 import pandas as pd
 from intradaydata import Intraday
+from intradaydata_investing import Intraday_Investing
 from preprocessing import ManipulateTimezone
-
-
+from tzlocal import get_localzone  # Automatically detects system timezone
 
 def _add_target_tz_col(intraday_csv,current_tz='UTC',final_tz='US/Eastern',tickerinterval=''):
     
@@ -28,9 +28,16 @@ def _save_data(Intraday_data_files,
               return_interval, 
               IntradayObject,
               mysymboldict,
-            
+              website='yahoo finance'
              ):
-    alldatadict=IntradayObject.fetch_data_yfinance(specific_tickers=IntradayObject.tickers) #Get dictionary of specific intraday data that we want to store
+    
+    if website=='yahoo finance':
+        alldatadict=IntradayObject.fetch_data_yfinance(specific_tickers=IntradayObject.tickers) #Get dictionary of specific intraday data that we want to store
+        fetched_tz='UTC'
+    elif website=='investing':
+        alldatadict={list(mysymboldict.values())[0][0]:IntradayObject.fetch_data_investing()}
+        fetched_tz=get_localzone()
+
     #print(start_date,end_date)
     #print(alldatadict)
     ## In the "temp" folder, merge the new data with old data (old data is present in "Intraday_data_files")
@@ -95,7 +102,7 @@ def _save_data(Intraday_data_files,
     
         else:
             finalcsv = pd.concat([oldcsv,newcsv])
-        
+        print(finalcsv)
         finalcsv.drop_duplicates(inplace=True)
         finalcsv.dropna(inplace=True,how='all') 
         finalcsv.index = pd.to_datetime(finalcsv.index)
@@ -108,7 +115,7 @@ def _save_data(Intraday_data_files,
         finalstart=str(finalcsv.index.to_list()[0])[:10]
         finalend=str(finalcsv.index.to_list()[-1])[:10]
         finalpath=os.path.join('temp',f'Intraday_data_{symbol}_{return_interval}_{finalstart}_to_{finalend}.csv')
-        finalcsv=_add_target_tz_col(finalcsv,current_tz='UTC',final_tz='US/Eastern',tickerinterval=return_interval)
+        finalcsv=_add_target_tz_col(finalcsv,current_tz=fetched_tz,final_tz='US/Eastern',tickerinterval=return_interval)
         finalcsv.to_csv(finalpath,index=True)
         # #print(f'Old CSV for {symbol}')
         # #print(f'New CSV for {symbol}')
@@ -127,36 +134,60 @@ def runner(start,
            Intraday_data_files,
            Daily_backup_files,
            dic='default',
+           mywebsite='yahoo finance'
           ):
-    my_intraday_obj=Intraday(start_intraday=start,
-                             end_intraday=end,
-                             interval=ticker_interval)
-    if dic=='default':
-        mysymboldict={
-        "ZN=F":["ZN","10-Year T-Note Futures"],
-        "ZB=F":["ZB","30-Year T-Bond Futures"],
-        "ZF=F":["ZF","5-Year US T-Note Futures"],
-        "ZT=F":["ZT","2-Year US T-Note Futures"],
-        "DX-Y.NYB":["DXY","US Dollar Index"],
-        "CL=F":["CL","Crude Oil futures"],
-        "GC=F":["GC","Gold futures"],
-        "NQ=F":["NQ","Nasdaq 100 futures"],
-        "^DJI":["DJI","Dow Jones Industrial Average"],
-        "^GSPC":["GSPC","S&P 500"]
-        }
-    else:
-        mysymboldict=dic
+    if mywebsite=='yahoo finance':
+        my_intraday_obj=Intraday(start_intraday=start,
+                                end_intraday=end,
+                                interval=ticker_interval)
+        if dic=='default':
+            mysymboldict={
+            "ZN=F":["ZN","10-Year T-Note Futures"],
+            "ZB=F":["ZB","30-Year T-Bond Futures"],
+            "ZF=F":["ZF","5-Year US T-Note Futures"],
+            "ZT=F":["ZT","2-Year US T-Note Futures"],
+            "DX-Y.NYB":["DXY","US Dollar Index"],
+            "CL=F":["CL","Crude Oil futures"],
+            "GC=F":["GC","Gold futures"],
+            "NQ=F":["NQ","Nasdaq 100 futures"],
+            "^DJI":["DJI","Dow Jones Industrial Average"],
+            "^GSPC":["GSPC","S&P 500"]
+            }
+        else:
+            mysymboldict=dic
 
-    my_intraday_obj.update_dict_symbols(mysymboldict)
+        my_intraday_obj.update_dict_symbols(mysymboldict)
 
-    _save_data(Intraday_data_files,
-                Daily_backup_files,
-                return_interval=ticker_interval, 
-                IntradayObject=my_intraday_obj, 
-                mysymboldict=mysymboldict,
-                )
-    
+        _save_data(Intraday_data_files,
+        Daily_backup_files,
+        return_interval=ticker_interval,
+        IntradayObject=my_intraday_obj,
+        mysymboldict=mysymboldict,
+        website=mywebsite
+        )
 
+    elif mywebsite=='investing':
+        if dic=='default':
+            mysymboldict={
+                "FGBL":["FGBL","German 10 YR Bund Futures",
+                'https://in.investing.com/rates-bonds/euro-bund-historical-data']
+            }
+        else:
+            mysymboldict=dic
+
+        print(len(list(mysymboldict)))
+        my_intraday_obj=Intraday_Investing(url=list(mysymboldict.values())[0][2],
+                                           interval=ticker_interval)
+        
+        _save_data(Intraday_data_files,
+            Daily_backup_files,
+            return_interval=ticker_interval,
+            IntradayObject=my_intraday_obj,
+            mysymboldict=mysymboldict,
+            website=mywebsite
+            )
+        
+   
 INTRADAY_FILES= "Intraday_data_files" # Read current dataset of historical data
 if __name__=='__main__':
     ### Make Folders to Store Data
@@ -209,6 +240,17 @@ if __name__=='__main__':
            Intraday_data_files=INTRADAY_FILES,
            Daily_backup_files=DAILY_FILES
           )
+    
+    # Case:5: FGBL from investing.com
+    runner(
+        start=None,
+        end=None,
+        ticker_interval='1d',
+        dic={"FGBL":["FGBL","German 10 YR Bund Futures",'https://in.investing.com/rates-bonds/euro-bund-historical-data']},
+        Intraday_data_files=INTRADAY_FILES,
+        Daily_backup_files=DAILY_FILES,
+        mywebsite='investing'
+    )
 
         
     ### Delete the "Intraday_data_files directory" and rename "temp" as "Intraday_data_files directory"

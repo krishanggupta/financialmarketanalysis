@@ -7,6 +7,7 @@ from nonevents import Nonevents
 from periodic_runner_main import INTRADAY_FILES as Intraday_data_files
 import shutil
 import os
+from tzlocal import get_localzone 
 
 def _change_event_tiers(
     events_data_folder,
@@ -14,6 +15,7 @@ def _change_event_tiers(
     events_data_path,
     default_tz="Asia/Kolkata",
     target_tz="US/Eastern",
+    change_tiers_bool=True
 ):
     """
     Prepares and processes economic event data by combining, assigning tiers and flags,
@@ -29,15 +31,6 @@ def _change_event_tiers(
     Returns:
         str: Path to the final processed file with timestamps in the target timezone.
     """
-    # Define file paths
-    events_excel_path = os.path.join(events_data_folder, events_data_path)
-    combined_excel_path = os.path.join(
-        processed_data_folder, f'{events_data_path.split(".", maxsplit=1)[0]}_sheets_combined.csv'
-    )
-    combined_excel_target_tz_path = os.path.join(
-        processed_data_folder,
-        f'{events_data_path.split(".", maxsplit=1)[0]}_sheets_combined_target_tz.csv',
-    )
 
     # Define tier and flag dictionaries
     tier1_events = ["CPI", "PPI", "PCE", "Inflation", "NFP", "Unemployment", "Payrolls"]
@@ -72,11 +65,23 @@ def _change_event_tiers(
         "IND_FED": ["FOMC", "Speech", "Beige", "Speak"],
     }
 
+    events_excel_path = os.path.join(events_data_folder, events_data_path)
+   
+    
     # Create Events class instance
-    myevents = Events(events_excel_path, my_tier_dic, my_flag_dic)
+    add_new_events_dic={'IST':['US']}
+    myevents = Events(events_excel_path, my_tier_dic, my_flag_dic,new_events_folder=folder_events,
+                      add_new_events_dic=add_new_events_dic,
+                      change_tiers=change_tiers_bool)
 
     # Save combined events
     combined_excel = myevents.combined_excel
+    start_date=str(combined_excel.loc[0,combined_excel.columns[0]]).split()[0]
+    end_date=str(combined_excel.loc[len(combined_excel)-1,combined_excel.columns[0]]).split()[0]
+    combined_excel_path = os.path.join(
+        processed_data_folder, f'{events_data_path.split(".", maxsplit=1)[0]}_{start_date}_to_{end_date}_combined.csv'
+    )
+
     myevents.save_sheet(combined_excel, combined_excel_path)
 
     # Manipulate the Timezone
@@ -87,12 +92,60 @@ def _change_event_tiers(
         default_tz,
         target_tz,
     )
+    # Save combined events with new timezone
+    start_date=str(combined_excel_target_tz.loc[0,combined_excel.columns[0]]).split()[0]
+    end_date=str(combined_excel_target_tz.loc[len(combined_excel)-1,combined_excel.columns[0]]).split()[0]
 
+    combined_excel_target_tz_path = os.path.join(
+        processed_data_folder,
+        f'{events_data_path.split(".", maxsplit=1)[0]}_{start_date}_to_{end_date}_combined_target_tz.csv',
+    )
     myevents.save_sheet(combined_excel_target_tz, combined_excel_target_tz_path)
 
     # Return the path to the final processed file
     return (combined_excel_target_tz, combined_excel_target_tz_path)
 
+
+def scan_folder_and_calculate_returns(
+        ticker_match_tuple,
+        input_folder,
+        processed_folder,
+        output_folder,
+        final_events_data,
+        ):
+   
+    for tickersymbol,tickerinterval,ticker_bps_factor in ticker_match_tuple:
+        csvfile='NA'
+        for csvfile in os.scandir(input_folder):
+            if 'stats' in csvfile.name:
+                continue
+            if csvfile.is_file() and csvfile.name.endswith('.csv') and (csvfile.name.split('_'))[2]==tickersymbol and (csvfile.name.split('_'))[3]==tickerinterval:
+                    break
+        if csvfile=='NA':
+            continue
+        csvdata=pd.read_csv(csvfile)
+
+        if 'd' in tickerinterval: #Add time to DATE and make it "DATE + 23:59:00" if interval >=1d
+            csvdata=ManipulateTimezone.add_time_for_d_intervals(csvdata,csvdata.columns[0])
+
+
+        csvdata.dropna(inplace=True,axis=0,how='all')
+        csvdata['timestamp']=csvdata['Datetime']
+        csvdata.reset_index(drop=True,inplace=True)
+        #print(csvdata.tail())
+
+        (final_data, final_data_path) = _get_distribution_of_returns(
+            combined_excel_target_tz=final_events_data,
+            processed_data_folder=processed_folder,
+            pre_fed_data=[csvdata, tickersymbol],
+            skip_data_fetching=True,
+            myoutput_folder=output_folder,
+            interval=tickerinterval,
+            month_day_filter=[],#[12, 15, 31] 12: December, 15: Start Date, 31: End Date
+            bps_factor=ticker_bps_factor
+        )
+        print(f"Processed files saved at: {final_data_path}")
+        #print(final_data)
 
 def _get_distribution_of_returns(
     mytickers='NotDefined',
@@ -102,10 +155,12 @@ def _get_distribution_of_returns(
     combined_excel_target_tz='NotDefined',
     processed_data_folder='NotDefined',
     myoutput_folder="NotDefined",
+    bps_factor=16, #For ZN
     
     skip_data_fetching=False,
     pre_fed_data="",
     month_day_filter=[]#Don't filter dates by default
+
 ):
     """
     Processes intraday data for a given list of tickers, performs tagging, filtering, and generates output files.
@@ -143,8 +198,14 @@ def _get_distribution_of_returns(
 
     # Data Preprocessing: Change the timezone of the historical data to target timezone
     preprocessing_obj = ManipulateTimezone(data)
+
+    if ticker_symbol=='FGBL':
+        current_tz=get_localzone()
+    else:
+        current_tz='UTC'
+
     data_target_tz = preprocessing_obj.change_timezone(
-        checkdf=data, tz_col="timestamp", default_tz="UTC", target_tz="US/Eastern"
+        checkdf=data, tz_col="timestamp", default_tz=current_tz, target_tz="US/Eastern"
     )
 
     # Event Tagging
@@ -181,81 +242,51 @@ def _get_distribution_of_returns(
     )
     ne_filtered_data.to_csv(ne_filtered_data_path, index=False)
 
-    
     _get_stats_plots(
-        returns_obj, ne_filtered_data, tickersymbol=ticker_symbol, interval=interval
+        returns_obj,
+        ne_filtered_data,
+        bps_factor,
+        tickersymbol=ticker_symbol,
+        interval=interval,
     )
 
     return (ne_filtered_data, ne_filtered_data_path)
 
-
-def _get_stats_plots(my_returns_object, ne_filtered_data, tickersymbol, interval):
-
+def _get_stats_plots(my_returns_object,
+                    ne_filtered_data, 
+                    bps_factor,
+                    tickersymbol, 
+                    interval):
+    
     # Data Visualization:
     # 1. Daily Session Returns
     if "m" in interval or "h" in interval:  # interval<1d
         daily_session_returns = my_returns_object.get_daily_session_returns(
-            ne_filtered_data
+            ne_filtered_data,bps_factor
         )
 
         my_returns_object.plot_daily_session_returns(
-            ne_filtered_data, tickersymbol, interval
+            ne_filtered_data, tickersymbol, interval,bps_factor
         )
     elif "d" in interval:  # interval=1d
         # 1. Daily Returns
-        daily_returns = my_returns_object.get_daily_returns(ne_filtered_data)
+        daily_returns = my_returns_object.get_daily_returns(ne_filtered_data,bps_factor)
+
+        my_returns_object.plot_daily_session_returns(
+            ne_filtered_data, tickersymbol, interval,bps_factor
+        )
 
     # 2. Daily Session Volatility Returns
     my_returns_object.plot_daily_session_volatility_returns(
-        ne_filtered_data, tickersymbol, interval
+        ne_filtered_data, tickersymbol, interval,bps_factor
     )
-
-
-def scan_folder_and_calculate_returns(
-        ticker_match_tuple,
-        input_folder,
-        processed_folder,
-        output_folder,
-        final_events_data,
-        ):
-   
-    for tickersymbol,tickerinterval in ticker_match_tuple:
-        csvfile='NA'
-        for csvfile in os.scandir(input_folder):
-            if 'stats' in csvfile.name:
-                continue
-            if csvfile.is_file() and csvfile.name.endswith('.csv') and (csvfile.name.split('_'))[2]==tickersymbol and (csvfile.name.split('_'))[3]==tickerinterval:
-                    break
-        if csvfile=='NA':
-            continue
-        csvdata=pd.read_csv(csvfile)
-
-        if 'd' in tickerinterval: #Add time to DATE and make it "DATE + 23:59:00" if interval >=1d
-            csvdata=ManipulateTimezone.add_time_for_d_intervals(csvdata,csvdata.columns[0])
-
-        
-
-        csvdata.dropna(inplace=True,axis=0)
-        csvdata['timestamp']=csvdata['Datetime']
-        csvdata.reset_index(drop=True,inplace=True)
-        print(csvdata.tail())
-
-        (final_data, final_data_path) = _get_distribution_of_returns(
-            combined_excel_target_tz=final_events_data,
-            processed_data_folder=processed_folder,
-            pre_fed_data=[csvdata, tickersymbol],
-            skip_data_fetching=True,
-            myoutput_folder=output_folder,
-            interval=tickerinterval,
-            month_day_filter=[]#[12, 15, 31] 12: December, 15: Start Date, 31: End Date
-        )
-        print(f"Processed files saved at: {final_data_path}")
-        print(final_data)
-        
+    
 folder_events= 'Input_data'
 folder_input = Intraday_data_files
 folder_output = Intraday_data_files+'_stats_and_plots_folder'
 folder_processed = Intraday_data_files+'_processed_folder'
+
+
 
 if __name__ == "__main__":
     folder_events= 'Input_data'
@@ -286,18 +317,25 @@ if __name__ == "__main__":
     os.makedirs(folder_output)#exist_ok=True)
    
     myevents_path = "EconomicEventsSheet15-24.xlsx"
-    ticker_match_tuple=(("ZN",'1m'),("ZN",'15m'),("ZN",'1h'),('ZN','1d'),
-                        ("ZB",'1m'),
-                        ("ZT",'1m'),
-                         ("ZF",'1m')
+    ticker_match_tuple=(("ZN",'1m',16),
+                        ("ZN",'15m',16),
+                        ("ZN",'1h',16),
+                        ('ZN','1d',16),
+                        ("ZB",'1m',16),
+                        ("ZT",'1m',16),
+                        ("ZF",'1m',16),
+                        ('FGBL','1d',100)
                         )
 
+    # Create Events DataFrame
     (final_events_data, final_path) = _change_event_tiers(
         events_data_folder=folder_events,
         processed_data_folder=folder_processed,
         events_data_path=myevents_path,
+        change_tiers_bool=True
     )
     print(f"Processed Events file saved at: {final_path}")
+
     scan_folder_and_calculate_returns(
         ticker_match_tuple,
         folder_input,
@@ -305,4 +343,3 @@ if __name__ == "__main__":
         folder_output,
         final_events_data
     )
-
