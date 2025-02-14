@@ -28,6 +28,10 @@ jobs:
         pip install matplotlib
         pip install yfinance
         pip install seaborn
+        pip install bs4
+        pip install pyvirtualdisplay
+        pip install chromedriver_autoinstaller
+        pip install openpyxl
         
     - name: Run Python script
       run: python periodic_runner_main.py  # Replace with your actual Python script name
