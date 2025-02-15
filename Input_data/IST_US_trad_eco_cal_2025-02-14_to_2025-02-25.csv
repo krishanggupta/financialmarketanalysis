@@ -9,11 +9,11 @@ DATETIME,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-14 19:00:00+05:30,Retail Sales Ex Gas/Autos MoMJAN,-0.5%,,0.2%,3.0
 2025-02-14 19:00:00+05:30,Retail Sales YoYJAN,4.2%,,3.7%,3.0
 2025-02-14 19:00:00+05:30,Retail Sales MoMJAN,-0.9%,-0.1%,0%,1.0
+2025-02-14 19:45:00+05:30,Manufacturing Production YoYJAN,1%,,0.8%,3.0
+2025-02-14 19:45:00+05:30,Manufacturing Production MoMJAN,-0.1%,0.1%,0.2%,3.0
+2025-02-14 19:45:00+05:30,Industrial Production MoMJAN,0.5%,0.3%,0.3%,2.0
 2025-02-14 19:45:00+05:30,Capacity UtilizationJAN,77.8%,77.7%,77.4%,3.0
 2025-02-14 19:45:00+05:30,Industrial Production YoYJAN,2%,,0.9%,3.0
-2025-02-14 19:45:00+05:30,Manufacturing Production MoMJAN,-0.1%,0.1%,0.2%,3.0
-2025-02-14 19:45:00+05:30,Manufacturing Production YoYJAN,1%,,0.8%,3.0
-2025-02-14 19:45:00+05:30,Industrial Production MoMJAN,0.5%,0.3%,0.3%,2.0
 2025-02-14 20:30:00+05:30,Business Inventories MoMDEC,-0.2%,0%,-0.1%,2.0
 2025-02-14 20:30:00+05:30,Retail Inventories Ex Autos MoMDEC,-0.1%,0.2%,0.2%,3.0
 2025-02-14 23:30:00+05:30,Baker Hughes Oil Rig CountFEB/14,481,,,3.0
@@ -63,8 +63,8 @@ DATETIME,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-19 19:00:00+05:30,Building Permits MoM PrelJAN,,,-0.8%,2.0
 2025-02-19 19:00:00+05:30,Building Permits PrelJAN,,1.45M,1.47M,1.0
 2025-02-19 19:00:00+05:30,Housing Starts MoMJAN,,,-9.0%,2.0
-2025-02-19 19:00:00+05:30,Building Permits MoM PrelJAN,,,-0.8%,2.0
 2025-02-19 19:00:00+05:30,Housing StartsJAN,,1.39M,1.35M,1.0
+2025-02-19 19:00:00+05:30,Building Permits MoM PrelJAN,,,-0.8%,2.0
 2025-02-19 19:00:00+05:30,Housing Starts MoMJAN,,,-9.0%,2.0
 2025-02-19 19:25:00+05:30,Redbook YoYFEB/15,,,,3.0
 2025-02-19 19:25:00+05:30,Redbook YoYFEB/15,,,,3.0
@@ -119,12 +119,12 @@ DATETIME,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-20 22:30:00+05:30,EIA Gasoline Production ChangeFEB/14,,,,3.0
 2025-02-20 22:30:00+05:30,EIA Heating Oil Stocks ChangeFEB/14,,,,3.0
 2025-02-20 22:30:00+05:30,EIA Refinery Crude Runs ChangeFEB/14,,,,3.0
-2025-02-20 22:30:00+05:30,EIA Gasoline Stocks ChangeFEB/14,,,,2.0
-2025-02-20 22:30:00+05:30,15-Year Mortgage RateFEB/20,,,,3.0
-2025-02-20 22:30:00+05:30,EIA Crude Oil Imports ChangeFEB/14,,,,3.0
-2025-02-20 22:30:00+05:30,EIA Cushing Crude Oil Stocks ChangeFEB/14,,,,3.0
-2025-02-20 22:30:00+05:30,EIA Crude Oil Stocks ChangeFEB/14,,,,2.0
 2025-02-20 22:30:00+05:30,EIA Distillate Fuel Production ChangeFEB/14,,,,3.0
+2025-02-20 22:30:00+05:30,EIA Crude Oil Stocks ChangeFEB/14,,,,2.0
+2025-02-20 22:30:00+05:30,EIA Cushing Crude Oil Stocks ChangeFEB/14,,,,3.0
+2025-02-20 22:30:00+05:30,EIA Crude Oil Imports ChangeFEB/14,,,,3.0
+2025-02-20 22:30:00+05:30,15-Year Mortgage RateFEB/20,,,,3.0
+2025-02-20 22:30:00+05:30,EIA Gasoline Stocks ChangeFEB/14,,,,2.0
 2025-02-20 22:30:00+05:30,EIA Refinery Crude Runs ChangeFEB/14,,,,3.0
 2025-02-20 22:30:00+05:30,EIA Heating Oil Stocks ChangeFEB/14,,,,3.0
 2025-02-20 22:30:00+05:30,EIA Gasoline Production ChangeFEB/14,,,,3.0
@@ -141,31 +141,31 @@ DATETIME,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-21 03:30:00+05:30,Fed Kugler Speech,,,,2.0
 2025-02-21 03:30:00+05:30,Fed Kugler Speech,,,,2.0
 2025-02-21 20:15:00+05:30,S&P Global Composite PMI FlashFEB,,,52.7,2.0
-2025-02-21 20:15:00+05:30,S&P Global Services PMI FlashFEB,,,52.7,2.0
+2025-02-21 20:15:00+05:30,S&P Global Manufacturing PMI FlashFEB,,,51.3,2.0
 2025-02-21 20:15:00+05:30,S&P Global Services PMI FlashFEB,,,52.7,2.0
 2025-02-21 20:15:00+05:30,S&P Global Manufacturing PMI FlashFEB,,,51.3,2.0
 2025-02-21 20:15:00+05:30,S&P Global Composite PMI FlashFEB,,,52.7,2.0
-2025-02-21 20:15:00+05:30,S&P Global Manufacturing PMI FlashFEB,,,51.3,2.0
+2025-02-21 20:15:00+05:30,S&P Global Services PMI FlashFEB,,,52.7,2.0
 2025-02-21 20:30:00+05:30,Michigan Consumer Sentiment FinalFEB,,67.8,67.8,2.0
-2025-02-21 20:30:00+05:30,Michigan Current Conditions FinalFEB,,68.7,68.7,3.0
+2025-02-21 20:30:00+05:30,Michigan Consumer Expectations FinalFEB,,67.3,67.3,3.0
 2025-02-21 20:30:00+05:30,Michigan Consumer Expectations FinalFEB,,67.3,67.3,3.0
 2025-02-21 20:30:00+05:30,Michigan Current Conditions FinalFEB,,68.7,68.7,3.0
 2025-02-21 20:30:00+05:30,Michigan Inflation Expectations FinalFEB,,4.3%,4.3%,3.0
 2025-02-21 20:30:00+05:30,Existing Home Sales MoMJAN,,,-1.7%,2.0
 2025-02-21 20:30:00+05:30,Michigan 5 Year Inflation Expectations FinalFEB,,3.3%,3.3%,3.0
-2025-02-21 20:30:00+05:30,Michigan Consumer Expectations FinalFEB,,67.3,67.3,3.0
+2025-02-21 20:30:00+05:30,Michigan Consumer Sentiment FinalFEB,,67.8,67.8,2.0
 2025-02-21 20:30:00+05:30,Existing Home SalesJAN,,4.17M,4.16M,1.0
 2025-02-21 20:30:00+05:30,Michigan Inflation Expectations FinalFEB,,4.3%,4.3%,3.0
 2025-02-21 20:30:00+05:30,Existing Home SalesJAN,,4.17M,4.16M,1.0
-2025-02-21 20:30:00+05:30,Michigan Consumer Sentiment FinalFEB,,67.8,67.8,2.0
+2025-02-21 20:30:00+05:30,Michigan Current Conditions FinalFEB,,68.7,68.7,3.0
 2025-02-21 20:30:00+05:30,Michigan 5 Year Inflation Expectations FinalFEB,,3.3%,3.3%,3.0
 2025-02-21 20:30:00+05:30,Existing Home Sales MoMJAN,,,-1.7%,2.0
 2025-02-21 22:00:00+05:30,Fed Jefferson Speech,,,,2.0
 2025-02-21 22:00:00+05:30,Fed Jefferson Speech,,,,2.0
 2025-02-21 23:30:00+05:30,Baker Hughes Oil Rig CountFEB/21,,,,3.0
 2025-02-21 23:30:00+05:30,Baker Hughes Total Rigs CountFEB/21,,,,3.0
-2025-02-21 23:30:00+05:30,Baker Hughes Oil Rig CountFEB/21,,,,3.0
 2025-02-21 23:30:00+05:30,Baker Hughes Total Rigs CountFEB/21,,,,3.0
+2025-02-21 23:30:00+05:30,Baker Hughes Oil Rig CountFEB/21,,,,3.0
 2025-02-24 19:00:00+05:30,Chicago Fed National Activity IndexJAN,,,,2.0
 2025-02-24 19:00:00+05:30,Chicago Fed National Activity IndexJAN,,,,2.0
 2025-02-24 21:00:00+05:30,Dallas Fed Manufacturing IndexFEB,,,,2.0
