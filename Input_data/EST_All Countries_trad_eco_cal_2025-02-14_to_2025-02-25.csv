@@ -6,11 +6,11 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-14 02:00:00-05:00,DE,Wholesale Prices MoMJAN,0.9%,0.2%,0.1%,2.0
 2025-02-14 02:00:00-05:00,DE,Wholesale Prices YoYJAN,0.9%,,0.1%,2.0
 2025-02-14 02:30:00-05:00,KR,50-Year KTB Auction,2.570%,,,3.0
+2025-02-14 03:00:00-05:00,ES,Core Inflation Rate YoY FinalJAN,2.4%,2.4%,2.4%,3.0
+2025-02-14 03:00:00-05:00,ES,Harmonised Inflation Rate YoY FinalJAN,2.9%,2.9%,2.9%,3.0
+2025-02-14 03:00:00-05:00,ES,Inflation Rate YoY FinalJAN,2.9%,3%,3.0%,3.0
 2025-02-14 03:00:00-05:00,ES,Inflation Rate MoM FinalJAN,0.2%,0.2%,0.2%,3.0
 2025-02-14 03:00:00-05:00,ES,Harmonised Inflation Rate MoM FinalJAN,-0.1%,-0.1%,-0.1%,3.0
-2025-02-14 03:00:00-05:00,ES,Harmonised Inflation Rate YoY FinalJAN,2.9%,2.9%,2.9%,3.0
-2025-02-14 03:00:00-05:00,ES,Core Inflation Rate YoY FinalJAN,2.4%,2.4%,2.4%,3.0
-2025-02-14 03:00:00-05:00,ES,Inflation Rate YoY FinalJAN,2.9%,3%,3.0%,3.0
 2025-02-14 04:00:00-05:00,CN,New Yuan LoansJAN,CNY5130B,CNY800B,CNY1000.0B,2.0
 2025-02-14 04:00:00-05:00,CN,M2 Money Supply YoYJAN,7%,7.2%,7.5%,3.0
 2025-02-14 04:00:00-05:00,CN,Outstanding Loan Growth YoYJAN,7.5%,7.3%,7.4%,3.0
@@ -21,32 +21,32 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-14 05:00:00-05:00,EA,GDP Growth Rate QoQ 2nd EstQ4,0.1%,0%,0.0%,2.0
 2025-02-14 05:00:00-05:00,EA,GDP Growth Rate YoY 2nd EstQ4,0.9%,0.9%,0.9%,2.0
 2025-02-14 05:30:00-05:00,RU,Interest Rate Decision,21%,21%,21%,3.0
+2025-02-14 06:30:00-05:00,IN,Deposit Growth YoYJAN/31,10.3%,,,3.0
 2025-02-14 06:30:00-05:00,IN,Foreign Exchange ReservesFEB/07,$638.26B,,,3.0
 2025-02-14 06:30:00-05:00,IN,Bank Loan Growth YoYJAN/31,11.4%,,,3.0
-2025-02-14 06:30:00-05:00,IN,Deposit Growth YoYJAN/31,10.3%,,,3.0
 2025-02-14 07:00:00-05:00,RU,CBR Press Conference,,,,3.0
-2025-02-14 08:30:00-05:00,US,Import Prices YoYJAN,1.9%,,2.8%,3.0
-2025-02-14 08:30:00-05:00,US,Export Prices YoYJAN,2.7%,,2.3%,3.0
-2025-02-14 08:30:00-05:00,US,Retail Sales Ex Gas/Autos MoMJAN,-0.5%,,0.2%,3.0
-2025-02-14 08:30:00-05:00,US,Retail Sales YoYJAN,4.2%,,3.7%,3.0
-2025-02-14 08:30:00-05:00,US,Retail Sales Control Group MoMJAN,-0.8%,0.3%,0.4%,2.0
-2025-02-14 08:30:00-05:00,US,Retail Sales Ex Autos MoMJAN,-0.4%,0.3%,0.3%,2.0
+2025-02-14 08:30:00-05:00,CA,Manufacturing Sales MoM FinalDEC,0.3%,0.7%,0.6%,3.0
+2025-02-14 08:30:00-05:00,US,Retail Sales MoMJAN,-0.9%,-0.1%,0%,1.0
+2025-02-14 08:30:00-05:00,CA,Wholesale Sales MoM FinalDEC,-0.2%,0.2%,0.2%,3.0
+2025-02-14 08:30:00-05:00,US,Import Prices MoMJAN,0.3%,0.4%,0.3%,2.0
 2025-02-14 08:30:00-05:00,US,Export Prices MoMJAN,1.3%,0.3%,0.3%,2.0
 2025-02-14 08:30:00-05:00,CA,New Motor Vehicle SalesDEC,135.5K,,153K,3.0
-2025-02-14 08:30:00-05:00,CA,Manufacturing Sales MoM FinalDEC,0.3%,0.7%,0.6%,3.0
-2025-02-14 08:30:00-05:00,US,Import Prices MoMJAN,0.3%,0.4%,0.3%,2.0
-2025-02-14 08:30:00-05:00,CA,Wholesale Sales MoM FinalDEC,-0.2%,0.2%,0.2%,3.0
-2025-02-14 08:30:00-05:00,US,Retail Sales MoMJAN,-0.9%,-0.1%,0%,1.0
+2025-02-14 08:30:00-05:00,US,Retail Sales Control Group MoMJAN,-0.8%,0.3%,0.4%,2.0
+2025-02-14 08:30:00-05:00,US,Retail Sales YoYJAN,4.2%,,3.7%,3.0
+2025-02-14 08:30:00-05:00,US,Retail Sales Ex Gas/Autos MoMJAN,-0.5%,,0.2%,3.0
+2025-02-14 08:30:00-05:00,US,Export Prices YoYJAN,2.7%,,2.3%,3.0
+2025-02-14 08:30:00-05:00,US,Import Prices YoYJAN,1.9%,,2.8%,3.0
+2025-02-14 08:30:00-05:00,US,Retail Sales Ex Autos MoMJAN,-0.4%,0.3%,0.3%,2.0
+2025-02-14 09:15:00-05:00,US,Capacity UtilizationJAN,77.8%,77.7%,77.4%,3.0
 2025-02-14 09:15:00-05:00,US,Industrial Production YoYJAN,2%,,0.9%,3.0
 2025-02-14 09:15:00-05:00,US,Manufacturing Production MoMJAN,-0.1%,0.1%,0.2%,3.0
 2025-02-14 09:15:00-05:00,US,Industrial Production MoMJAN,0.5%,0.3%,0.3%,2.0
-2025-02-14 09:15:00-05:00,US,Capacity UtilizationJAN,77.8%,77.7%,77.4%,3.0
 2025-02-14 09:15:00-05:00,US,Manufacturing Production YoYJAN,1%,,0.8%,3.0
-2025-02-14 10:00:00-05:00,US,Retail Inventories Ex Autos MoMDEC,-0.1%,0.2%,0.2%,3.0
 2025-02-14 10:00:00-05:00,US,Business Inventories MoMDEC,-0.2%,0%,-0.1%,2.0
+2025-02-14 10:00:00-05:00,US,Retail Inventories Ex Autos MoMDEC,-0.1%,0.2%,0.2%,3.0
 2025-02-14 10:30:00-05:00,CA,Senior Loan Officer Survey,,,,2.0
-2025-02-14 11:00:00-05:00,RU,Inflation Rate YoYJAN,9.9%,10%,9.9%,2.0
 2025-02-14 11:00:00-05:00,RU,Inflation Rate MoMJAN,1.2%,1.3%,1.2%,2.0
+2025-02-14 11:00:00-05:00,RU,Inflation Rate YoYJAN,9.9%,10%,9.9%,2.0
 2025-02-14 13:00:00-05:00,US,Baker Hughes Total Rigs CountFEB/14,588,,,3.0
 2025-02-14 13:00:00-05:00,US,Baker Hughes Oil Rig CountFEB/14,481,,,3.0
 2025-02-14 15:00:00-05:00,US,Fed Logan Speech,,,,2.0
@@ -93,9 +93,9 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-17 23:30:00-05:00,IN,ImportsJAN,,,,2.0
 2025-02-17 23:30:00-05:00,IN,ExportsJAN,,,,2.0
 2025-02-17 23:30:00-05:00,EA,ECOFIN Meeting,,,,2.0
-2025-02-17 23:30:00-05:00,BR,BCB Focus Market Readout,,,,2.0
-2025-02-17 23:30:00-05:00,IN,Balance of TradeJAN,,,$-24.0B,2.0
 2025-02-17 23:30:00-05:00,EU,European Commission Winter Forecasts,,,,2.0
+2025-02-17 23:30:00-05:00,IN,Balance of TradeJAN,,,$-24.0B,2.0
+2025-02-17 23:30:00-05:00,BR,BCB Focus Market Readout,,,,2.0
 2025-02-17 23:30:00-05:00,TR,Auto Sales YoYJAN,,,6.0%,2.0
 2025-02-17 23:30:00-05:00,TR,Auto Production YoYJAN,,,4.0%,2.0
 2025-02-17 23:30:00-05:00,AU,RBA Press Conference,,,,2.0
@@ -142,9 +142,9 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-18 16:00:00-05:00,US,Overall Net Capital FlowsDEC,,,,3.0
 2025-02-18 16:00:00-05:00,US,Net Long-term TIC FlowsDEC,,,,2.0
 2025-02-18 16:00:00-05:00,US,Foreign Bond InvestmentDEC,,,,3.0
-2025-02-18 18:50:00-05:00,JP,Imports YoYJAN,,9.7%,2.0%,3.0
-2025-02-18 18:50:00-05:00,JP,Machinery Orders MoMDEC,,0.1%,2.2%,2.0
 2025-02-18 18:50:00-05:00,JP,Machinery Orders YoYDEC,,6.9%,7.6%,2.0
+2025-02-18 18:50:00-05:00,JP,Machinery Orders MoMDEC,,0.1%,2.2%,2.0
+2025-02-18 18:50:00-05:00,JP,Imports YoYJAN,,9.7%,2.0%,3.0
 2025-02-18 18:50:00-05:00,JP,Balance of TradeJAN,,¥-2104B,¥-1400.0B,1.0
 2025-02-18 18:50:00-05:00,JP,Exports YoYJAN,,7.9%,3.0%,2.0
 2025-02-18 19:00:00-05:00,AU,Westpac Leading Index MoMJAN,,,0.2%,3.0
@@ -154,50 +154,50 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-18 20:30:00-05:00,CN,House Price Index YoYJAN,,,-5.0%,2.0
 2025-02-18 22:35:00-05:00,JP,52-Week Bill Auction,,,,3.0
 2025-02-18 22:35:00-05:00,ZA,Annual Budget Speech,,,,3.0
+2025-02-19 02:00:00-05:00,GB,Retail Price Index YoYJAN,,3.7%,3.6%,3.0
 2025-02-19 02:00:00-05:00,GB,Retail Price Index MoMJAN,,,-0.1%,3.0
 2025-02-19 02:00:00-05:00,GB,PPI Output YoYJAN,,,0.2%,3.0
 2025-02-19 02:00:00-05:00,GB,PPI Output MoMJAN,,0.2%,0.3%,3.0
 2025-02-19 02:00:00-05:00,GB,PPI Input YoYJAN,,,-0.8%,3.0
 2025-02-19 02:00:00-05:00,GB,PPI Input MoMJAN,,0.7%,0.5%,3.0
-2025-02-19 02:00:00-05:00,GB,PPI Core Output YoYJAN,,,1.3%,3.0
-2025-02-19 02:00:00-05:00,GB,Inflation Rate YoYJAN,,2.8%,2.7%,1.0
 2025-02-19 02:00:00-05:00,GB,Core Inflation Rate MoMJAN,,,-0.7%,3.0
+2025-02-19 02:00:00-05:00,GB,PPI Core Output MoMJAN,,,0.2%,3.0
 2025-02-19 02:00:00-05:00,GB,Inflation Rate MoMJAN,,,-0.3%,2.0
 2025-02-19 02:00:00-05:00,GB,Core Inflation Rate YoYJAN,,3.7%,3.5%,2.0
-2025-02-19 02:00:00-05:00,GB,Retail Price Index YoYJAN,,3.7%,3.6%,3.0
-2025-02-19 02:00:00-05:00,GB,PPI Core Output MoMJAN,,,0.2%,3.0
+2025-02-19 02:00:00-05:00,GB,Inflation Rate YoYJAN,,2.8%,2.7%,1.0
+2025-02-19 02:00:00-05:00,GB,PPI Core Output YoYJAN,,,1.3%,3.0
 2025-02-19 02:20:00-05:00,ID,Loan Growth YoYJAN,,,10.5%,3.0
+2025-02-19 02:30:00-05:00,ID,Interest Rate Decision,,5.75%,5.75%,2.0
 2025-02-19 02:30:00-05:00,ID,Deposit Facility RateFEB,,5%,5%,3.0
 2025-02-19 02:30:00-05:00,ID,Lending Facility RateFEB,,6.5%,6.5%,3.0
-2025-02-19 02:30:00-05:00,ID,Interest Rate Decision,,5.75%,5.75%,2.0
-2025-02-19 03:00:00-05:00,EA,ECB Non-Monetary Policy Meeting,,,,3.0
-2025-02-19 03:00:00-05:00,ZA,Inflation Rate MoMJAN,,,0.1%,2.0
-2025-02-19 03:00:00-05:00,ZA,Inflation Rate YoYJAN,,,3.2%,2.0
 2025-02-19 03:00:00-05:00,ZA,Core Inflation Rate MoMJAN,,,0.1%,3.0
 2025-02-19 03:00:00-05:00,ZA,Core Inflation Rate YoYJAN,,,3.6%,3.0
+2025-02-19 03:00:00-05:00,ZA,Inflation Rate YoYJAN,,,3.2%,2.0
+2025-02-19 03:00:00-05:00,EA,ECB Non-Monetary Policy Meeting,,,,3.0
+2025-02-19 03:00:00-05:00,ZA,Inflation Rate MoMJAN,,,0.1%,2.0
 2025-02-19 04:00:00-05:00,EA,Current AccountDEC,,,€32B,3.0
 2025-02-19 04:00:00-05:00,EA,Current Account s.aDEC,,€30B,€30B,3.0
 2025-02-19 05:00:00-05:00,IT,Current AccountDEC,,,€ 3780M,3.0
 2025-02-19 05:00:00-05:00,GB,4-Year Treasury Gilt Auction,,,,3.0
 2025-02-19 05:30:00-05:00,DE,10-Year Bund Auction,,,,3.0
-2025-02-19 06:00:00-05:00,ZA,Retail Sales YoYDEC,,,2.6%,3.0
 2025-02-19 06:00:00-05:00,ZA,Retail Sales MoMDEC,,,1.3%,3.0
-2025-02-19 06:10:00-05:00,EU,3-Month Bill Auction,,,,3.0
+2025-02-19 06:00:00-05:00,ZA,Retail Sales YoYDEC,,,2.6%,3.0
 2025-02-19 06:10:00-05:00,EU,6-Month Bill Auction,,,,3.0
+2025-02-19 06:10:00-05:00,EU,3-Month Bill Auction,,,,3.0
 2025-02-19 06:30:00-05:00,IN,M3 Money Supply YoYFEB/07,,,,3.0
+2025-02-19 07:00:00-05:00,US,MBA Purchase IndexFEB/14,,,,3.0
+2025-02-19 07:00:00-05:00,US,MBA Mortgage Refinance IndexFEB/14,,,,3.0
+2025-02-19 07:00:00-05:00,US,MBA Mortgage Market IndexFEB/14,,,,3.0
 2025-02-19 07:00:00-05:00,US,MBA 30-Year Mortgage RateFEB/14,,,,2.0
 2025-02-19 07:00:00-05:00,US,MBA Mortgage ApplicationsFEB/14,,,,3.0
-2025-02-19 07:00:00-05:00,US,MBA Mortgage Market IndexFEB/14,,,,3.0
-2025-02-19 07:00:00-05:00,US,MBA Mortgage Refinance IndexFEB/14,,,,3.0
-2025-02-19 07:00:00-05:00,US,MBA Purchase IndexFEB/14,,,,3.0
+2025-02-19 08:30:00-05:00,US,Housing Starts MoMJAN,,,-9.0%,2.0
 2025-02-19 08:30:00-05:00,US,Building Permits PrelJAN,,1.45M,1.47M,1.0
 2025-02-19 08:30:00-05:00,US,Housing StartsJAN,,1.39M,1.35M,1.0
 2025-02-19 08:30:00-05:00,US,Building Permits MoM PrelJAN,,,-0.8%,2.0
-2025-02-19 08:30:00-05:00,US,Housing Starts MoMJAN,,,-9.0%,2.0
 2025-02-19 08:55:00-05:00,US,Redbook YoYFEB/15,,,,3.0
 2025-02-19 10:30:00-05:00,US,NY Fed Treasury Purchases 22.5 to 30 yrs,,$50 million,,3.0
-2025-02-19 11:00:00-05:00,RU,PPI MoMJAN,,,0.6%,3.0
 2025-02-19 11:00:00-05:00,RU,PPI YoYJAN,,,8.2%,3.0
+2025-02-19 11:00:00-05:00,RU,PPI MoMJAN,,,0.6%,3.0
 2025-02-19 11:30:00-05:00,US,17-Week Bill Auction,,,,3.0
 2025-02-19 12:30:00-05:00,BR,Business ConfidenceFEB,,,48.8,2.0
 2025-02-19 13:00:00-05:00,US,20-Year Bond Auction,,,,3.0
@@ -207,21 +207,21 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-19 16:00:00-05:00,KR,PPI YoYJAN,,,1.8%,3.0
 2025-02-19 16:30:00-05:00,US,API Crude Oil Stock ChangeFEB/14,,,,2.0
 2025-02-19 17:00:00-05:00,US,Fed Jefferson Speech,,,,2.0
-2025-02-19 18:50:00-05:00,JP,Stock Investment by ForeignersFEB/15,,,,3.0
 2025-02-19 18:50:00-05:00,JP,Foreign Bond InvestmentFEB/15,,,,3.0
+2025-02-19 18:50:00-05:00,JP,Stock Investment by ForeignersFEB/15,,,,3.0
+2025-02-19 19:30:00-05:00,AU,Participation RateJAN,,67.1%,67.0%,3.0
+2025-02-19 19:30:00-05:00,AU,Part Time Employment ChgJAN,,,-10.0K,3.0
+2025-02-19 19:30:00-05:00,AU,Full Time Employment ChgJAN,,,33.0K,2.0
 2025-02-19 19:30:00-05:00,AU,Unemployment RateJAN,,4.1%,4.0%,1.0
 2025-02-19 19:30:00-05:00,AU,Employment ChangeJAN,,20K,23.0K,2.0
-2025-02-19 19:30:00-05:00,AU,Full Time Employment ChgJAN,,,33.0K,2.0
-2025-02-19 19:30:00-05:00,AU,Part Time Employment ChgJAN,,,-10.0K,3.0
-2025-02-19 19:30:00-05:00,AU,Participation RateJAN,,67.1%,67.0%,3.0
-2025-02-19 20:15:00-05:00,CN,Loan Prime Rate 1Y,,,3.1%,2.0
 2025-02-19 20:15:00-05:00,CN,Loan Prime Rate 5YFEB,,,3.6%,2.0
-2025-02-19 22:00:00-05:00,AR,Leading Indicator MoMJAN,,,1.5%,3.0
-2025-02-19 22:00:00-05:00,ID,Current AccountQ4,,,$ -0.6B,3.0
-2025-02-19 22:00:00-05:00,ID,M2 Money Supply YoYJAN,,,,3.0
+2025-02-19 20:15:00-05:00,CN,Loan Prime Rate 1Y,,,3.1%,2.0
 2025-02-19 22:00:00-05:00,ES,Consumer ConfidenceJAN,,,85.5,3.0
-2025-02-20 02:00:00-05:00,TR,Consumer ConfidenceFEB,,,80,2.0
+2025-02-19 22:00:00-05:00,ID,M2 Money Supply YoYJAN,,,,3.0
+2025-02-19 22:00:00-05:00,ID,Current AccountQ4,,,$ -0.6B,3.0
+2025-02-19 22:00:00-05:00,AR,Leading Indicator MoMJAN,,,1.5%,3.0
 2025-02-20 02:00:00-05:00,DE,PPI MoMJAN,,0.6%,0.5%,3.0
+2025-02-20 02:00:00-05:00,TR,Consumer ConfidenceFEB,,,80,2.0
 2025-02-20 02:00:00-05:00,DE,PPI YoYJAN,,,1.1%,2.0
 2025-02-20 04:00:00-05:00,IT,Construction Output YoYDEC,,,3.2%,3.0
 2025-02-20 04:40:00-05:00,ES,3-Year Bonos Auction,,,,3.0
@@ -231,30 +231,30 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-20 05:00:00-05:00,FR,3-Year OAT Auction,,,,3.0
 2025-02-20 05:00:00-05:00,FR,4-Year OAT Auction,,,,3.0
 2025-02-20 05:00:00-05:00,FR,5-Year OAT Auction,,,,3.0
-2025-02-20 06:00:00-05:00,FR,6-Year Index-Linked OAT Auction,,,,3.0
-2025-02-20 06:00:00-05:00,GB,CBI Industrial Trends OrdersFEB,,-30,-25,2.0
 2025-02-20 06:00:00-05:00,ZA,Building Permits YoYDEC,,,18.0%,3.0
+2025-02-20 06:00:00-05:00,GB,CBI Industrial Trends OrdersFEB,,-30,-25,2.0
 2025-02-20 06:00:00-05:00,FR,7-Year OATi Auction,,,,3.0
-2025-02-20 06:00:00-05:00,FR,11-Year Index-Linked OAT Auction,,,,3.0
+2025-02-20 06:00:00-05:00,FR,6-Year Index-Linked OAT Auction,,,,3.0
 2025-02-20 06:00:00-05:00,FR,18-Year Index-Linked OAT Auction,,,,3.0
+2025-02-20 06:00:00-05:00,FR,11-Year Index-Linked OAT Auction,,,,3.0
 2025-02-20 06:30:00-05:00,TR,Foreign Exchange ReservesFEB/14,,,,3.0
 2025-02-20 07:00:00-05:00,MX,Retail Sales MoMDEC,,,-0.4%,3.0
 2025-02-20 07:00:00-05:00,MX,Retail Sales YoYDEC,,,0.4%,3.0
-2025-02-20 08:30:00-05:00,US,Philly Fed Business ConditionsFEB,,,,3.0
-2025-02-20 08:30:00-05:00,US,Jobless Claims 4-week AverageFEB/15,,,219.0K,3.0
-2025-02-20 08:30:00-05:00,US,Philly Fed CAPEX IndexFEB,,,,3.0
 2025-02-20 08:30:00-05:00,US,Continuing Jobless ClaimsFEB/08,,,1879.0K,3.0
 2025-02-20 08:30:00-05:00,US,Philly Fed New OrdersFEB,,,,3.0
-2025-02-20 08:30:00-05:00,US,Philly Fed Prices PaidFEB,,,,3.0
 2025-02-20 08:30:00-05:00,US,Philly Fed EmploymentFEB,,,,3.0
+2025-02-20 08:30:00-05:00,US,Philly Fed CAPEX IndexFEB,,,,3.0
+2025-02-20 08:30:00-05:00,US,Philly Fed Business ConditionsFEB,,,,3.0
+2025-02-20 08:30:00-05:00,US,Jobless Claims 4-week AverageFEB/15,,,219.0K,3.0
+2025-02-20 08:30:00-05:00,US,Philly Fed Prices PaidFEB,,,,3.0
 2025-02-20 08:30:00-05:00,US,Philadelphia Fed Manufacturing IndexFEB,,25.5,18,2.0
+2025-02-20 08:30:00-05:00,US,Initial Jobless ClaimsFEB/15,,216K,220.0K,2.0
 2025-02-20 08:30:00-05:00,CA,Raw Materials Prices YoYJAN,,,10.0%,3.0
 2025-02-20 08:30:00-05:00,CA,Raw Materials Prices MoMJAN,,,-0.2%,3.0
 2025-02-20 08:30:00-05:00,CA,PPI YoYJAN,,,4.3%,3.0
 2025-02-20 08:30:00-05:00,CA,PPI MoMJAN,,,0.4%,3.0
 2025-02-20 08:30:00-05:00,CA,New Housing Price Index YoYJAN,,,0.2%,2.0
 2025-02-20 08:30:00-05:00,CA,New Housing Price Index MoMJAN,,,0.0%,2.0
-2025-02-20 08:30:00-05:00,US,Initial Jobless ClaimsFEB/15,,216K,220.0K,2.0
 2025-02-20 09:00:00-05:00,AR,Consumer ConfidenceFEB,,,48.2,3.0
 2025-02-20 09:35:00-05:00,US,Fed Golsbee Speech,,,,2.0
 2025-02-20 10:00:00-05:00,US,CB Leading Index MoMJAN,,0%,0%,3.0
@@ -262,15 +262,15 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-20 10:00:00-05:00,EA,Consumer Confidence FlashFEB,,-14,-14.4,2.0
 2025-02-20 10:30:00-05:00,US,EIA Natural Gas Stocks ChangeFEB/14,,,,3.0
 2025-02-20 11:00:00-05:00,DE,Bundesbank Nagel Speech,,,,3.0
-2025-02-20 11:30:00-05:00,US,8-Week Bill Auction,,,,3.0
 2025-02-20 11:30:00-05:00,US,4-Week Bill Auction,,,,3.0
-2025-02-20 12:00:00-05:00,US,EIA Distillate Stocks ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,US,EIA Gasoline Production ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,US,EIA Distillate Fuel Production ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,US,EIA Refinery Crude Runs ChangeFEB/14,,,,3.0
+2025-02-20 11:30:00-05:00,US,8-Week Bill Auction,,,,3.0
 2025-02-20 12:00:00-05:00,US,EIA Heating Oil Stocks ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,US,EIA Crude Oil Imports ChangeFEB/14,,,,3.0
 2025-02-20 12:00:00-05:00,US,EIA Cushing Crude Oil Stocks ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,US,EIA Gasoline Production ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,US,EIA Distillate Stocks ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,US,EIA Distillate Fuel Production ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,US,EIA Crude Oil Imports ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,US,EIA Refinery Crude Runs ChangeFEB/14,,,,3.0
 2025-02-20 12:00:00-05:00,US,15-Year Mortgage RateFEB/20,,,,3.0
 2025-02-20 12:00:00-05:00,US,EIA Gasoline Stocks ChangeFEB/14,,,,2.0
 2025-02-20 12:00:00-05:00,US,EIA Crude Oil Stocks ChangeFEB/14,,,,2.0
@@ -283,22 +283,22 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-20 16:30:00-05:00,US,Fed Balance SheetFEB/19,,,,3.0
 2025-02-20 17:00:00-05:00,US,Fed Kugler Speech,,,,2.0
 2025-02-20 17:00:00-05:00,AU,S&P Global Australia Composite PMI FlashFEB,,,50.6,3.0
-2025-02-20 17:00:00-05:00,AU,S&P Global Australia Manufacturing PMI FlashFEB,,,49.9,2.0
 2025-02-20 17:00:00-05:00,AU,S&P Global Australia Services PMI FlashFEB,,,51.3,2.0
+2025-02-20 17:00:00-05:00,AU,S&P Global Australia Manufacturing PMI FlashFEB,,,49.9,2.0
 2025-02-20 18:00:00-05:00,JP,Reuters Tankan IndexFEB,,,3,3.0
-2025-02-20 18:30:00-05:00,JP,Inflation Rate MoMJAN,,,0.2%,3.0
 2025-02-20 18:30:00-05:00,JP,Inflation Rate YoYJAN,,,3.7%,1.0
 2025-02-20 18:30:00-05:00,JP,Core Inflation Rate YoYJAN,,3.1%,3.2%,2.0
 2025-02-20 18:30:00-05:00,JP,Inflation Rate Ex-Food and Energy YoYJAN,,,2.6%,3.0
+2025-02-20 18:30:00-05:00,JP,Inflation Rate MoMJAN,,,0.2%,3.0
 2025-02-20 19:01:00-05:00,GB,Gfk Consumer ConfidenceFEB,,-22,-23,1.0
 2025-02-20 19:30:00-05:00,JP,Jibun Bank Manufacturing PMI FlashFEB,,49,49.6,2.0
 2025-02-20 19:30:00-05:00,JP,Jibun Bank Services PMI FlashFEB,,,52.2,2.0
 2025-02-20 19:30:00-05:00,JP,Jibun Bank Composite PMI FlashFEB,,,51.5,3.0
-2025-02-20 22:35:00-05:00,BR,6-Month LTN Auction,,,,3.0
 2025-02-20 22:35:00-05:00,BR,2-Year LTN Auction,,,,3.0
-2025-02-20 22:35:00-05:00,TR,Central Government DebtJAN,,,TRY 9.4T,3.0
 2025-02-20 22:35:00-05:00,BR,10-Year NTN-F Auction,,,,3.0
+2025-02-20 22:35:00-05:00,BR,6-Month LTN Auction,,,,3.0
 2025-02-20 22:35:00-05:00,JP,3-Month Bill Auction,,,,3.0
+2025-02-20 22:35:00-05:00,TR,Central Government DebtJAN,,,TRY 9.4T,3.0
 2025-02-21 00:00:00-05:00,IN,HSBC Composite PMI FlashFEB,,,58.2,2.0
 2025-02-21 00:00:00-05:00,IN,HSBC Manufacturing PMI FlashFEB,,,57.9,2.0
 2025-02-21 00:00:00-05:00,IN,HSBC Services PMI FlashFEB,,,57.5,2.0
@@ -307,52 +307,52 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-21 02:00:00-05:00,GB,Public Sector Net Borrowing Ex BanksJAN,,£20.5B,£19.0B,3.0
 2025-02-21 02:00:00-05:00,GB,Retail Sales ex Fuel MoMJAN,,,0.3%,3.0
 2025-02-21 02:00:00-05:00,GB,Retail Sales ex Fuel YoYJAN,,,3.0%,3.0
-2025-02-21 02:45:00-05:00,FR,Business Climate IndicatorFEB,,,92,3.0
 2025-02-21 02:45:00-05:00,FR,Business ConfidenceFEB,,,94,2.0
+2025-02-21 02:45:00-05:00,FR,Business Climate IndicatorFEB,,,92,3.0
 2025-02-21 03:00:00-05:00,TR,Tourist Arrivals YoYJAN,,,,3.0
-2025-02-21 03:15:00-05:00,FR,HCOB Composite PMI FlashFEB,,,47.2,2.0
-2025-02-21 03:15:00-05:00,FR,HCOB Manufacturing PMI FlashFEB,,45.3,45.4,2.0
 2025-02-21 03:15:00-05:00,FR,HCOB Services PMI FlashFEB,,49,48,2.0
+2025-02-21 03:15:00-05:00,FR,HCOB Manufacturing PMI FlashFEB,,45.3,45.4,2.0
+2025-02-21 03:15:00-05:00,FR,HCOB Composite PMI FlashFEB,,,47.2,2.0
 2025-02-21 03:30:00-05:00,DE,HCOB Manufacturing PMI FlashFEB,,45.5,45.1,1.0
 2025-02-21 03:30:00-05:00,DE,HCOB Composite PMI FlashFEB,,,50.1,2.0
 2025-02-21 03:30:00-05:00,DE,HCOB Services PMI FlashFEB,,52.5,51.9,2.0
 2025-02-21 04:00:00-05:00,IT,Harmonised Inflation Rate YoY FinalJAN,,1.7%,1.7%,3.0
-2025-02-21 04:00:00-05:00,IT,Harmonised Inflation Rate MoM FinalJAN,,-0.7%,-0.7%,3.0
-2025-02-21 04:00:00-05:00,IT,Inflation Rate YoY FinalJAN,,1.5%,1.5%,2.0
-2025-02-21 04:00:00-05:00,IT,Inflation Rate MoM FinalJAN,,0.6%,0.6%,2.0
-2025-02-21 04:00:00-05:00,EA,HCOB Services PMI FlashFEB,,51.5,51.2,2.0
-2025-02-21 04:00:00-05:00,EA,HCOB Manufacturing PMI FlashFEB,,47,46.8,2.0
 2025-02-21 04:00:00-05:00,EA,HCOB Composite PMI FlashFEB,,,50,2.0
-2025-02-21 04:30:00-05:00,GB,S&P Global Manufacturing PMI FlashFEB,,48.5,48.5,1.0
-2025-02-21 04:30:00-05:00,GB,S&P Global Services PMI FlashFEB,,51,51,1.0
+2025-02-21 04:00:00-05:00,EA,HCOB Manufacturing PMI FlashFEB,,47,46.8,2.0
+2025-02-21 04:00:00-05:00,EA,HCOB Services PMI FlashFEB,,51.5,51.2,2.0
+2025-02-21 04:00:00-05:00,IT,Inflation Rate MoM FinalJAN,,0.6%,0.6%,2.0
+2025-02-21 04:00:00-05:00,IT,Inflation Rate YoY FinalJAN,,1.5%,1.5%,2.0
+2025-02-21 04:00:00-05:00,IT,Harmonised Inflation Rate MoM FinalJAN,,-0.7%,-0.7%,3.0
 2025-02-21 04:30:00-05:00,GB,S&P Global Composite PMI FlashFEB,,,51,3.0
+2025-02-21 04:30:00-05:00,GB,S&P Global Services PMI FlashFEB,,51,51,1.0
+2025-02-21 04:30:00-05:00,GB,S&P Global Manufacturing PMI FlashFEB,,48.5,48.5,1.0
 2025-02-21 06:30:00-05:00,IN,Monetary Policy Meeting Minutes,,,,2.0
 2025-02-21 06:30:00-05:00,IN,Foreign Exchange ReservesFEB/14,,,,3.0
-2025-02-21 07:00:00-05:00,MX,Economic Activity YoYDEC,,,2%,3.0
+2025-02-21 07:00:00-05:00,MX,GDP Growth Rate QoQ FinalQ4,,-0.6%,-0.6%,2.0
 2025-02-21 07:00:00-05:00,MX,GDP Growth Rate YoY FinalQ4,,0.6%,0.6%,2.0
 2025-02-21 07:00:00-05:00,MX,Economic Activity MoMDEC,,,0.5%,3.0
-2025-02-21 07:00:00-05:00,MX,GDP Growth Rate QoQ FinalQ4,,-0.6%,-0.6%,2.0
+2025-02-21 07:00:00-05:00,MX,Economic Activity YoYDEC,,,2%,3.0
 2025-02-21 08:30:00-05:00,CA,Retail Sales Ex Autos MoMDEC,,0.4%,1%,2.0
 2025-02-21 08:30:00-05:00,CA,Retail Sales MoM FinalDEC,,1.6%,1.6%,2.0
 2025-02-21 08:30:00-05:00,CA,Retail Sales MoM PrelJAN,,,-0.3%,2.0
 2025-02-21 08:30:00-05:00,CA,Retail Sales YoYDEC,,,0.5%,3.0
 2025-02-21 09:30:00-05:00,EA,ECB Lane Speech,,,,3.0
-2025-02-21 09:45:00-05:00,US,S&P Global Composite PMI FlashFEB,,,52.7,2.0
-2025-02-21 09:45:00-05:00,US,S&P Global Manufacturing PMI FlashFEB,,,51.3,2.0
 2025-02-21 09:45:00-05:00,US,S&P Global Services PMI FlashFEB,,,52.7,2.0
+2025-02-21 09:45:00-05:00,US,S&P Global Manufacturing PMI FlashFEB,,,51.3,2.0
+2025-02-21 09:45:00-05:00,US,S&P Global Composite PMI FlashFEB,,,52.7,2.0
+2025-02-21 10:00:00-05:00,US,Existing Home SalesJAN,,4.17M,4.16M,1.0
+2025-02-21 10:00:00-05:00,US,Existing Home Sales MoMJAN,,,-1.7%,2.0
+2025-02-21 10:00:00-05:00,US,Michigan Consumer Sentiment FinalFEB,,67.8,67.8,2.0
+2025-02-21 10:00:00-05:00,US,Michigan 5 Year Inflation Expectations FinalFEB,,3.3%,3.3%,3.0
+2025-02-21 10:00:00-05:00,US,Michigan Consumer Expectations FinalFEB,,67.3,67.3,3.0
 2025-02-21 10:00:00-05:00,US,Michigan Current Conditions FinalFEB,,68.7,68.7,3.0
 2025-02-21 10:00:00-05:00,US,Michigan Inflation Expectations FinalFEB,,4.3%,4.3%,3.0
-2025-02-21 10:00:00-05:00,US,Michigan Consumer Expectations FinalFEB,,67.3,67.3,3.0
-2025-02-21 10:00:00-05:00,US,Michigan 5 Year Inflation Expectations FinalFEB,,3.3%,3.3%,3.0
-2025-02-21 10:00:00-05:00,US,Michigan Consumer Sentiment FinalFEB,,67.8,67.8,2.0
-2025-02-21 10:00:00-05:00,US,Existing Home Sales MoMJAN,,,-1.7%,2.0
-2025-02-21 10:00:00-05:00,US,Existing Home SalesJAN,,4.17M,4.16M,1.0
 2025-02-21 11:30:00-05:00,US,Fed Jefferson Speech,,,,2.0
 2025-02-21 12:45:00-05:00,CA,BoC Gov Macklem Speech,,,,2.0
 2025-02-21 13:00:00-05:00,US,Baker Hughes Oil Rig CountFEB/21,,,,3.0
+2025-02-21 13:00:00-05:00,BR,Federal Tax RevenuesJAN,,,,3.0
 2025-02-21 13:00:00-05:00,US,Baker Hughes Total Rigs CountFEB/21,,,,3.0
 2025-02-21 13:00:00-05:00,CN,FDI (YTD) YoYJAN,,,-18.0%,3.0
-2025-02-21 13:00:00-05:00,BR,Federal Tax RevenuesJAN,,,,3.0
 2025-02-22 13:00:00-05:00,DE,Federal Election,,,,
 2025-02-24 00:00:00-05:00,SG,Core Inflation Rate YoYJAN,,,2.0%,3.0
 2025-02-24 00:00:00-05:00,SG,Inflation Rate MoMJAN,,,-0.1%,3.0
@@ -360,29 +360,29 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-24 00:00:00-05:00,KR,5-Year KTB Auction,,,,3.0
 2025-02-24 02:00:00-05:00,TR,Business ConfidenceFEB,,,,2.0
 2025-02-24 02:00:00-05:00,TR,Capacity UtilizationFEB,,,,3.0
-2025-02-24 04:00:00-05:00,DE,Ifo Business ClimateFEB,,,84,1.0
-2025-02-24 04:00:00-05:00,DE,Ifo Current ConditionsFEB,,,85.1,3.0
 2025-02-24 04:00:00-05:00,DE,Ifo ExpectationsFEB,,,83,3.0
+2025-02-24 04:00:00-05:00,DE,Ifo Current ConditionsFEB,,,85.1,3.0
+2025-02-24 04:00:00-05:00,DE,Ifo Business ClimateFEB,,,84,1.0
+2025-02-24 05:00:00-05:00,EA,Inflation Rate YoY FinalJAN,,2.5%,2.5%,2.0
+2025-02-24 05:00:00-05:00,EA,Core Inflation Rate YoY FinalJAN,,2.7%,2.7%,3.0
 2025-02-24 05:00:00-05:00,EA,CPI FinalJAN,,126.71,126.71,3.0
 2025-02-24 05:00:00-05:00,EA,Inflation Rate MoM FinalJAN,,-0.3%,-0.3%,3.0
-2025-02-24 05:00:00-05:00,EA,Core Inflation Rate YoY FinalJAN,,2.7%,2.7%,3.0
-2025-02-24 05:00:00-05:00,EA,Inflation Rate YoY FinalJAN,,2.5%,2.5%,2.0
 2025-02-24 05:30:00-05:00,DE,3-Month Bubill Auction,,,,3.0
 2025-02-24 05:30:00-05:00,DE,9-Month Bubill Auction,,,,3.0
 2025-02-24 05:45:00-05:00,EU,EU Bond Auction,,,,3.0
 2025-02-24 06:00:00-05:00,BR,FGV Consumer ConfidenceFEB,,,,3.0
 2025-02-24 07:00:00-05:00,MX,Mid-month Inflation Rate YoYFEB,,,,3.0
-2025-02-24 07:00:00-05:00,MX,Mid-month Core Inflation Rate MoMFEB,,,,3.0
 2025-02-24 07:00:00-05:00,MX,Mid-month Core Inflation Rate YoYFEB,,,,3.0
 2025-02-24 07:00:00-05:00,MX,Mid-month Inflation Rate MoMFEB,,,,3.0
+2025-02-24 07:00:00-05:00,MX,Mid-month Core Inflation Rate MoMFEB,,,,3.0
 2025-02-24 08:15:00-05:00,CA,BoC Gravelle Speech,,,,2.0
 2025-02-24 08:30:00-05:00,US,Chicago Fed National Activity IndexJAN,,,,2.0
 2025-02-24 09:00:00-05:00,FR,12-Month BTF Auction,,,,3.0
 2025-02-24 09:00:00-05:00,FR,3-Month BTF Auction,,,,3.0
 2025-02-24 09:00:00-05:00,FR,6-Month BTF Auction,,,,3.0
 2025-02-24 10:30:00-05:00,US,Dallas Fed Manufacturing IndexFEB,,,,2.0
-2025-02-24 11:30:00-05:00,US,3-Month Bill Auction,,,,3.0
 2025-02-24 11:30:00-05:00,US,6-Month Bill Auction,,,,3.0
+2025-02-24 11:30:00-05:00,US,3-Month Bill Auction,,,,3.0
 2025-02-24 13:00:00-05:00,US,2-Year Note Auction,,,,3.0
 2025-02-24 20:00:00-05:00,KR,Interest Rate Decision,,,2.75%,2.0
 2025-02-25 00:00:00-05:00,SG,MAS 12-Week Bill Auction,,,,3.0
@@ -395,3 +395,6 @@ DATETIME,COUNTRY,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-25 02:00:00-05:00,DE,GDP Growth Rate YoY FinalQ4,,-0.2%,-0.2%,2.0
 2025-02-25 02:00:00-05:00,EU,New Car Registrations YoYJAN,,,,2.0
 2025-02-25 02:00:00-05:00,ZA,Leading Business Cycle Indicator MoMDEC,,,0.3%,3.0
+2025-02-25 05:10:00-05:00,IT,2-Year BTP Short Term Auction,,,,3.0
+2025-02-25 05:10:00-05:00,IT,BTP€i Auction,,,,3.0
+2025-02-25 05:10:00-05:00,EA,Negotiated Wage GrowthQ4,,,5.1%,3.0
