@@ -3,7 +3,7 @@ name: Hourly Run Trading Economics Calendar
 on:
   push:
     branches:
-      - main # Runs on push to the main branch
+      - main  # Runs on push to the main branch
   schedule:
     - cron: '0 * * * *'  # Runs every hour
 
@@ -13,44 +13,40 @@ jobs:
 
     steps:
     - name: Check out repository
-      uses: actions/checkout@v3  # Use v3 for the latest version
+      uses: actions/checkout@v3
       with:
-        fetch-depth: 0  # Fetch the full history to resolve remote conflicts
+        fetch-depth: 0  # Fetch full history to avoid conflicts
 
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: '3.12.2'  # Use the specific version of Python you need
+        python-version: '3.12.2'  # Use the specific Python version needed
 
     - name: Install dependencies manually
       run: |
-        pip install pandas
-        pip install numpy
-        pip install selenium
-        pip install bs4
-        pip install pyvirtualdisplay
-        pip install chromedriver_autoinstaller
-        pip install openpyxl
-        
+        pip install pandas numpy selenium bs4 pyvirtualdisplay chromedriver_autoinstaller openpyxl
+
     - name: Run Python script
-      run: python event_calendar_runner_main_github_actions.py  # Replace with your actual Python script name
+      run: python event_calendar_runner_main_github_actions.py  # Replace with your script name
 
     - name: Configure Git user
       run: |
-        git config --global user.name "krishangguptafibonacciresearch"  # Replace with your name
-        git config --global user.email "krishanggupta@fibonacciresearch.in"  # Replace with your email
-        
-    - name:  Check if both folders have files and commit changes
-      run: |
-          # Check if folders exist and contain files
-          if [ -d "Input_data" ] && [ "$(ls -A Input_data)" ]; then
-            echo "Folders with files detected, committing changes"
-            git add .
-            git commit -m "Add new stats/plots folders and files created by Python script" || echo "No changes to commit"
-            git push origin main --force-with-lease
-          else
-            echo "Folders do not have files, skipping commit"
-          fi
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        git config --global user.name "krishangguptafibonacciresearch"
+        git config --global user.email "krishanggupta@fibonacciresearch.in"
 
+    - name: Pull latest changes to avoid conflicts
+      run: |
+        git pull origin main --rebase || echo "No updates available"
+
+    - name: Check if both folders have files and commit changes
+      run: |
+        if [ -d "Input_data" ] && [ "$(ls -A Input_data)" ]; then
+          echo "Folders with files detected, committing changes"
+          git add .
+          git commit -m "Add new stats/plots folders and files created by Python script" || echo "No changes to commit"
+          git push origin main --force-with-lease
+        else
+          echo "Folders do not have files, skipping commit"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
