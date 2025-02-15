@@ -24,7 +24,7 @@ jobs:
 
     - name: Install dependencies manually
       run: |
-        pip install yfinance pandas numpy matplotlib seaborn scipy openpyxl selenium
+        pip install yfinance pandas numpy matplotlib seaborn scipy openpyxl selenium tzlocal
 
     - name: Run Python script
       run: python returns_main.py  # Replace with your actual Python script name
