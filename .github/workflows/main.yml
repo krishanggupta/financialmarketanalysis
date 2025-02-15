@@ -37,7 +37,7 @@ jobs:
         pip install scipy
         pip install pillow
     - name: Run Python script
-      run: python periodic_runner_main.py  # Replace with your actual Python script name
+      run: python periodic_runner_main_github_actions.py  # Replace with your actual Python script name
 
     - name: Configure Git user
       run: |
