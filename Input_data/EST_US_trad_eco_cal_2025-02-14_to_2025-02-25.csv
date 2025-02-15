@@ -8,11 +8,11 @@ DATETIME,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-14 08:30:00-05:00,Retail Sales Control Group MoMJAN,-0.8%,0.3%,0.4%,2.0
 2025-02-14 08:30:00-05:00,Import Prices MoMJAN,0.3%,0.4%,0.3%,2.0
 2025-02-14 08:30:00-05:00,Export Prices YoYJAN,2.7%,,2.3%,3.0
-2025-02-14 09:15:00-05:00,Capacity UtilizationJAN,77.8%,77.7%,77.4%,3.0
-2025-02-14 09:15:00-05:00,Industrial Production YoYJAN,2%,,0.9%,3.0
-2025-02-14 09:15:00-05:00,Manufacturing Production MoMJAN,-0.1%,0.1%,0.2%,3.0
-2025-02-14 09:15:00-05:00,Industrial Production MoMJAN,0.5%,0.3%,0.3%,2.0
 2025-02-14 09:15:00-05:00,Manufacturing Production YoYJAN,1%,,0.8%,3.0
+2025-02-14 09:15:00-05:00,Industrial Production MoMJAN,0.5%,0.3%,0.3%,2.0
+2025-02-14 09:15:00-05:00,Manufacturing Production MoMJAN,-0.1%,0.1%,0.2%,3.0
+2025-02-14 09:15:00-05:00,Industrial Production YoYJAN,2%,,0.9%,3.0
+2025-02-14 09:15:00-05:00,Capacity UtilizationJAN,77.8%,77.7%,77.4%,3.0
 2025-02-14 10:00:00-05:00,Retail Inventories Ex Autos MoMDEC,-0.1%,0.2%,0.2%,3.0
 2025-02-14 10:00:00-05:00,Business Inventories MoMDEC,-0.2%,0%,-0.1%,2.0
 2025-02-14 13:00:00-05:00,Baker Hughes Total Rigs CountFEB/14,588,,,3.0
@@ -40,30 +40,30 @@ DATETIME,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-18 13:00:00-05:00,Fed Barr Speech,,,,2.0
 2025-02-18 13:00:00-05:00,52-Week Bill Auction,,,,3.0
 2025-02-18 13:00:00-05:00,Fed Barr Speech,,,,2.0
-2025-02-18 16:00:00-05:00,Overall Net Capital FlowsDEC,,,,3.0
+2025-02-18 16:00:00-05:00,Net Long-term TIC FlowsDEC,,,,2.0
 2025-02-18 16:00:00-05:00,Foreign Bond InvestmentDEC,,,,3.0
 2025-02-18 16:00:00-05:00,Overall Net Capital FlowsDEC,,,,3.0
 2025-02-18 16:00:00-05:00,Net Long-term TIC FlowsDEC,,,,2.0
-2025-02-18 16:00:00-05:00,Net Long-term TIC FlowsDEC,,,,2.0
 2025-02-18 16:00:00-05:00,Foreign Bond InvestmentDEC,,,,3.0
-2025-02-19 07:00:00-05:00,MBA Purchase IndexFEB/14,,,,3.0
-2025-02-19 07:00:00-05:00,MBA Mortgage Refinance IndexFEB/14,,,,3.0
-2025-02-19 07:00:00-05:00,MBA Mortgage Market IndexFEB/14,,,,3.0
-2025-02-19 07:00:00-05:00,MBA Mortgage ApplicationsFEB/14,,,,3.0
+2025-02-18 16:00:00-05:00,Overall Net Capital FlowsDEC,,,,3.0
 2025-02-19 07:00:00-05:00,MBA 30-Year Mortgage RateFEB/14,,,,2.0
 2025-02-19 07:00:00-05:00,MBA 30-Year Mortgage RateFEB/14,,,,2.0
 2025-02-19 07:00:00-05:00,MBA Mortgage ApplicationsFEB/14,,,,3.0
 2025-02-19 07:00:00-05:00,MBA Purchase IndexFEB/14,,,,3.0
 2025-02-19 07:00:00-05:00,MBA Mortgage Refinance IndexFEB/14,,,,3.0
 2025-02-19 07:00:00-05:00,MBA Mortgage Market IndexFEB/14,,,,3.0
+2025-02-19 07:00:00-05:00,MBA Purchase IndexFEB/14,,,,3.0
+2025-02-19 07:00:00-05:00,MBA Mortgage Refinance IndexFEB/14,,,,3.0
+2025-02-19 07:00:00-05:00,MBA Mortgage Market IndexFEB/14,,,,3.0
+2025-02-19 07:00:00-05:00,MBA Mortgage ApplicationsFEB/14,,,,3.0
+2025-02-19 08:30:00-05:00,Building Permits PrelJAN,,1.45M,1.47M,1.0
 2025-02-19 08:30:00-05:00,Housing Starts MoMJAN,,,-9.0%,2.0
+2025-02-19 08:30:00-05:00,Building Permits MoM PrelJAN,,,-0.8%,2.0
 2025-02-19 08:30:00-05:00,Housing StartsJAN,,1.39M,1.35M,1.0
-2025-02-19 08:30:00-05:00,Building Permits MoM PrelJAN,,,-0.8%,2.0
-2025-02-19 08:30:00-05:00,Building Permits MoM PrelJAN,,,-0.8%,2.0
-2025-02-19 08:30:00-05:00,Housing Starts MoMJAN,,,-9.0%,2.0
 2025-02-19 08:30:00-05:00,Building Permits PrelJAN,,1.45M,1.47M,1.0
 2025-02-19 08:30:00-05:00,Housing StartsJAN,,1.39M,1.35M,1.0
-2025-02-19 08:30:00-05:00,Building Permits PrelJAN,,1.45M,1.47M,1.0
+2025-02-19 08:30:00-05:00,Housing Starts MoMJAN,,,-9.0%,2.0
+2025-02-19 08:30:00-05:00,Building Permits MoM PrelJAN,,,-0.8%,2.0
 2025-02-19 08:55:00-05:00,Redbook YoYFEB/15,,,,3.0
 2025-02-19 08:55:00-05:00,Redbook YoYFEB/15,,,,3.0
 2025-02-19 10:30:00-05:00,NY Fed Treasury Purchases 22.5 to 30 yrs,,$50 million,,3.0
@@ -78,15 +78,8 @@ DATETIME,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-19 16:30:00-05:00,API Crude Oil Stock ChangeFEB/14,,,,2.0
 2025-02-19 17:00:00-05:00,Fed Jefferson Speech,,,,2.0
 2025-02-19 17:00:00-05:00,Fed Jefferson Speech,,,,2.0
-2025-02-20 08:30:00-05:00,Philly Fed Prices PaidFEB,,,,3.0
-2025-02-20 08:30:00-05:00,Philly Fed CAPEX IndexFEB,,,,3.0
-2025-02-20 08:30:00-05:00,Philly Fed Business ConditionsFEB,,,,3.0
-2025-02-20 08:30:00-05:00,Jobless Claims 4-week AverageFEB/15,,,219.0K,3.0
-2025-02-20 08:30:00-05:00,Continuing Jobless ClaimsFEB/08,,,1879.0K,3.0
-2025-02-20 08:30:00-05:00,Philadelphia Fed Manufacturing IndexFEB,,25.5,18,2.0
 2025-02-20 08:30:00-05:00,Initial Jobless ClaimsFEB/15,,216K,220.0K,2.0
-2025-02-20 08:30:00-05:00,Philly Fed New OrdersFEB,,,,3.0
-2025-02-20 08:30:00-05:00,Philly Fed EmploymentFEB,,,,3.0
+2025-02-20 08:30:00-05:00,Continuing Jobless ClaimsFEB/08,,,1879.0K,3.0
 2025-02-20 08:30:00-05:00,Initial Jobless ClaimsFEB/15,,216K,220.0K,2.0
 2025-02-20 08:30:00-05:00,Philly Fed New OrdersFEB,,,,3.0
 2025-02-20 08:30:00-05:00,Philly Fed CAPEX IndexFEB,,,,3.0
@@ -94,40 +87,47 @@ DATETIME,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-20 08:30:00-05:00,Jobless Claims 4-week AverageFEB/15,,,219.0K,3.0
 2025-02-20 08:30:00-05:00,Philadelphia Fed Manufacturing IndexFEB,,25.5,18,2.0
 2025-02-20 08:30:00-05:00,Continuing Jobless ClaimsFEB/08,,,1879.0K,3.0
-2025-02-20 08:30:00-05:00,Philly Fed Prices PaidFEB,,,,3.0
 2025-02-20 08:30:00-05:00,Philly Fed EmploymentFEB,,,,3.0
+2025-02-20 08:30:00-05:00,Philadelphia Fed Manufacturing IndexFEB,,25.5,18,2.0
+2025-02-20 08:30:00-05:00,Philly Fed Prices PaidFEB,,,,3.0
+2025-02-20 08:30:00-05:00,Jobless Claims 4-week AverageFEB/15,,,219.0K,3.0
+2025-02-20 08:30:00-05:00,Philly Fed Business ConditionsFEB,,,,3.0
+2025-02-20 08:30:00-05:00,Philly Fed CAPEX IndexFEB,,,,3.0
+2025-02-20 08:30:00-05:00,Philly Fed EmploymentFEB,,,,3.0
+2025-02-20 08:30:00-05:00,Philly Fed New OrdersFEB,,,,3.0
+2025-02-20 08:30:00-05:00,Philly Fed Prices PaidFEB,,,,3.0
 2025-02-20 09:35:00-05:00,Fed Golsbee Speech,,,,2.0
 2025-02-20 09:35:00-05:00,Fed Golsbee Speech,,,,2.0
 2025-02-20 10:00:00-05:00,CB Leading Index MoMJAN,,0%,0%,3.0
 2025-02-20 10:00:00-05:00,CB Leading Index MoMJAN,,0%,0%,3.0
 2025-02-20 10:30:00-05:00,EIA Natural Gas Stocks ChangeFEB/14,,,,3.0
 2025-02-20 10:30:00-05:00,EIA Natural Gas Stocks ChangeFEB/14,,,,3.0
-2025-02-20 11:30:00-05:00,4-Week Bill Auction,,,,3.0
 2025-02-20 11:30:00-05:00,8-Week Bill Auction,,,,3.0
 2025-02-20 11:30:00-05:00,8-Week Bill Auction,,,,3.0
 2025-02-20 11:30:00-05:00,4-Week Bill Auction,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Distillate Fuel Production ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Crude Oil Imports ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,30-Year Mortgage RateFEB/20,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Crude Oil Stocks ChangeFEB/14,,,,2.0
-2025-02-20 12:00:00-05:00,EIA Distillate Stocks ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Gasoline Production ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Heating Oil Stocks ChangeFEB/14,,,,3.0
+2025-02-20 11:30:00-05:00,4-Week Bill Auction,,,,3.0
+2025-02-20 12:00:00-05:00,15-Year Mortgage RateFEB/20,,,,3.0
 2025-02-20 12:00:00-05:00,EIA Gasoline Stocks ChangeFEB/14,,,,2.0
+2025-02-20 12:00:00-05:00,EIA Crude Oil Stocks ChangeFEB/14,,,,2.0
+2025-02-20 12:00:00-05:00,30-Year Mortgage RateFEB/20,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Cushing Crude Oil Stocks ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Distillate Stocks ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Distillate Fuel Production ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Gasoline Stocks ChangeFEB/14,,,,2.0
+2025-02-20 12:00:00-05:00,15-Year Mortgage RateFEB/20,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Cushing Crude Oil Stocks ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Crude Oil Stocks ChangeFEB/14,,,,2.0
+2025-02-20 12:00:00-05:00,30-Year Mortgage RateFEB/20,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Crude Oil Imports ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Distillate Fuel Production ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Distillate Stocks ChangeFEB/14,,,,3.0
 2025-02-20 12:00:00-05:00,EIA Refinery Crude Runs ChangeFEB/14,,,,3.0
 2025-02-20 12:00:00-05:00,EIA Heating Oil Stocks ChangeFEB/14,,,,3.0
 2025-02-20 12:00:00-05:00,EIA Gasoline Production ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Distillate Stocks ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Distillate Fuel Production ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Cushing Crude Oil Stocks ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Crude Oil Imports ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Gasoline Production ChangeFEB/14,,,,3.0
 2025-02-20 12:00:00-05:00,EIA Refinery Crude Runs ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,15-Year Mortgage RateFEB/20,,,,3.0
-2025-02-20 12:00:00-05:00,30-Year Mortgage RateFEB/20,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Crude Oil Stocks ChangeFEB/14,,,,2.0
-2025-02-20 12:00:00-05:00,EIA Cushing Crude Oil Stocks ChangeFEB/14,,,,3.0
-2025-02-20 12:00:00-05:00,15-Year Mortgage RateFEB/20,,,,3.0
-2025-02-20 12:00:00-05:00,EIA Gasoline Stocks ChangeFEB/14,,,,2.0
+2025-02-20 12:00:00-05:00,EIA Heating Oil Stocks ChangeFEB/14,,,,3.0
+2025-02-20 12:00:00-05:00,EIA Crude Oil Imports ChangeFEB/14,,,,3.0
 2025-02-20 12:05:00-05:00,Fed Musalem Speech,,,,2.0
 2025-02-20 12:05:00-05:00,Fed Musalem Speech,,,,2.0
 2025-02-20 13:00:00-05:00,30-Year TIPS Auction,,,,3.0
@@ -140,28 +140,28 @@ DATETIME,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-20 17:00:00-05:00,Fed Kugler Speech,,,,2.0
 2025-02-21 09:45:00-05:00,S&P Global Services PMI FlashFEB,,,52.7,2.0
 2025-02-21 09:45:00-05:00,S&P Global Composite PMI FlashFEB,,,52.7,2.0
-2025-02-21 09:45:00-05:00,S&P Global Manufacturing PMI FlashFEB,,,51.3,2.0
-2025-02-21 09:45:00-05:00,S&P Global Services PMI FlashFEB,,,52.7,2.0
 2025-02-21 09:45:00-05:00,S&P Global Composite PMI FlashFEB,,,52.7,2.0
 2025-02-21 09:45:00-05:00,S&P Global Manufacturing PMI FlashFEB,,,51.3,2.0
-2025-02-21 10:00:00-05:00,Existing Home SalesJAN,,4.17M,4.16M,1.0
+2025-02-21 09:45:00-05:00,S&P Global Services PMI FlashFEB,,,52.7,2.0
+2025-02-21 09:45:00-05:00,S&P Global Manufacturing PMI FlashFEB,,,51.3,2.0
 2025-02-21 10:00:00-05:00,Michigan Inflation Expectations FinalFEB,,4.3%,4.3%,3.0
+2025-02-21 10:00:00-05:00,Existing Home SalesJAN,,4.17M,4.16M,1.0
 2025-02-21 10:00:00-05:00,Existing Home Sales MoMJAN,,,-1.7%,2.0
-2025-02-21 10:00:00-05:00,Michigan Consumer Expectations FinalFEB,,67.3,67.3,3.0
-2025-02-21 10:00:00-05:00,Michigan 5 Year Inflation Expectations FinalFEB,,3.3%,3.3%,3.0
 2025-02-21 10:00:00-05:00,Michigan Consumer Sentiment FinalFEB,,67.8,67.8,2.0
-2025-02-21 10:00:00-05:00,Michigan Current Conditions FinalFEB,,68.7,68.7,3.0
+2025-02-21 10:00:00-05:00,Michigan 5 Year Inflation Expectations FinalFEB,,3.3%,3.3%,3.0
 2025-02-21 10:00:00-05:00,Michigan Inflation Expectations FinalFEB,,4.3%,4.3%,3.0
 2025-02-21 10:00:00-05:00,Michigan Current Conditions FinalFEB,,68.7,68.7,3.0
-2025-02-21 10:00:00-05:00,Michigan Consumer Expectations FinalFEB,,67.3,67.3,3.0
-2025-02-21 10:00:00-05:00,Michigan 5 Year Inflation Expectations FinalFEB,,3.3%,3.3%,3.0
-2025-02-21 10:00:00-05:00,Michigan Consumer Sentiment FinalFEB,,67.8,67.8,2.0
-2025-02-21 10:00:00-05:00,Existing Home Sales MoMJAN,,,-1.7%,2.0
 2025-02-21 10:00:00-05:00,Existing Home SalesJAN,,4.17M,4.16M,1.0
+2025-02-21 10:00:00-05:00,Existing Home Sales MoMJAN,,,-1.7%,2.0
+2025-02-21 10:00:00-05:00,Michigan Consumer Sentiment FinalFEB,,67.8,67.8,2.0
+2025-02-21 10:00:00-05:00,Michigan 5 Year Inflation Expectations FinalFEB,,3.3%,3.3%,3.0
+2025-02-21 10:00:00-05:00,Michigan Current Conditions FinalFEB,,68.7,68.7,3.0
+2025-02-21 10:00:00-05:00,Michigan Consumer Expectations FinalFEB,,67.3,67.3,3.0
+2025-02-21 10:00:00-05:00,Michigan Consumer Expectations FinalFEB,,67.3,67.3,3.0
 2025-02-21 11:30:00-05:00,Fed Jefferson Speech,,,,2.0
 2025-02-21 11:30:00-05:00,Fed Jefferson Speech,,,,2.0
-2025-02-21 13:00:00-05:00,Baker Hughes Oil Rig CountFEB/21,,,,3.0
 2025-02-21 13:00:00-05:00,Baker Hughes Total Rigs CountFEB/21,,,,3.0
+2025-02-21 13:00:00-05:00,Baker Hughes Oil Rig CountFEB/21,,,,3.0
 2025-02-21 13:00:00-05:00,Baker Hughes Oil Rig CountFEB/21,,,,3.0
 2025-02-21 13:00:00-05:00,Baker Hughes Total Rigs CountFEB/21,,,,3.0
 2025-02-24 08:30:00-05:00,Chicago Fed National Activity IndexJAN,,,,2.0
@@ -170,31 +170,33 @@ DATETIME,EVENTS,ACTUAL,CONSENSUS,FORECAST,TIER
 2025-02-24 10:30:00-05:00,Dallas Fed Manufacturing IndexFEB,,,,2.0
 2025-02-24 11:30:00-05:00,3-Month Bill Auction,,,,3.0
 2025-02-24 11:30:00-05:00,6-Month Bill Auction,,,,3.0
-2025-02-24 11:30:00-05:00,3-Month Bill Auction,,,,3.0
 2025-02-24 11:30:00-05:00,6-Month Bill Auction,,,,3.0
+2025-02-24 11:30:00-05:00,3-Month Bill Auction,,,,3.0
 2025-02-24 13:00:00-05:00,2-Year Note Auction,,,,3.0
 2025-02-24 13:00:00-05:00,2-Year Note Auction,,,,3.0
 2025-02-25 08:55:00-05:00,Redbook YoYFEB/22,,,,3.0
 2025-02-25 08:55:00-05:00,Redbook YoYFEB/22,,,,3.0
-2025-02-25 09:00:00-05:00,S&P/Case-Shiller Home Price YoYDEC,,,4.2%,2.0
-2025-02-25 09:00:00-05:00,House Price IndexDEC,,,,3.0
 2025-02-25 09:00:00-05:00,House Price Index MoMDEC,,,,3.0
 2025-02-25 09:00:00-05:00,House Price Index YoYDEC,,,,3.0
 2025-02-25 09:00:00-05:00,S&P/Case-Shiller Home Price MoMDEC,,,,3.0
-2025-02-25 09:00:00-05:00,House Price Index YoYDEC,,,,3.0
-2025-02-25 09:00:00-05:00,House Price Index MoMDEC,,,,3.0
-2025-02-25 09:00:00-05:00,S&P/Case-Shiller Home Price MoMDEC,,,,3.0
-2025-02-25 09:00:00-05:00,S&P/Case-Shiller Home Price YoYDEC,,,4.2%,2.0
 2025-02-25 09:00:00-05:00,House Price IndexDEC,,,,3.0
-2025-02-25 10:00:00-05:00,Richmond Fed Services Revenues IndexFEB,,,,3.0
-2025-02-25 10:00:00-05:00,Richmond Fed Manufacturing Shipments IndexFEB,,,,3.0
+2025-02-25 09:00:00-05:00,S&P/Case-Shiller Home Price YoYDEC,,,4.2%,2.0
+2025-02-25 09:00:00-05:00,S&P/Case-Shiller Home Price MoMDEC,,,,3.0
+2025-02-25 09:00:00-05:00,House Price Index MoMDEC,,,,3.0
+2025-02-25 09:00:00-05:00,S&P/Case-Shiller Home Price YoYDEC,,,4.2%,2.0
+2025-02-25 09:00:00-05:00,House Price Index YoYDEC,,,,3.0
+2025-02-25 09:00:00-05:00,House Price IndexDEC,,,,3.0
+2025-02-25 10:00:00-05:00,CB Consumer ConfidenceFEB,,,,2.0
 2025-02-25 10:00:00-05:00,Richmond Fed Manufacturing IndexFEB,,,,3.0
+2025-02-25 10:00:00-05:00,Richmond Fed Manufacturing Shipments IndexFEB,,,,3.0
+2025-02-25 10:00:00-05:00,Richmond Fed Services Revenues IndexFEB,,,,3.0
 2025-02-25 10:00:00-05:00,Richmond Fed Services Revenues IndexFEB,,,,3.0
 2025-02-25 10:00:00-05:00,CB Consumer ConfidenceFEB,,,,2.0
-2025-02-25 10:00:00-05:00,Richmond Fed Manufacturing Shipments IndexFEB,,,,3.0
 2025-02-25 10:00:00-05:00,Richmond Fed Manufacturing IndexFEB,,,,3.0
-2025-02-25 10:00:00-05:00,CB Consumer ConfidenceFEB,,,,2.0
+2025-02-25 10:00:00-05:00,Richmond Fed Manufacturing Shipments IndexFEB,,,,3.0
+2025-02-25 10:30:00-05:00,Dallas Fed Services Revenues IndexFEB,,,,3.0
 2025-02-25 10:30:00-05:00,Dallas Fed Services IndexFEB,,,,3.0
 2025-02-25 10:30:00-05:00,Dallas Fed Services IndexFEB,,,,3.0
 2025-02-25 10:30:00-05:00,Dallas Fed Services Revenues IndexFEB,,,,3.0
-2025-02-25 10:30:00-05:00,Dallas Fed Services Revenues IndexFEB,,,,3.0
+2025-02-25 13:00:00-05:00,5-Year Note Auction,,,,3.0
+2025-02-25 13:00:00-05:00,Money SupplyJAN,,,,3.0
