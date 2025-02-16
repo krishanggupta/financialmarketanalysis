@@ -36,15 +36,18 @@ jobs:
 
     - name: Pull latest changes to avoid conflicts
       run: |
-        git pull origin main --rebase || echo "No updates available"
+        git fetch origin main
+        git stash  # Temporarily saves local changes
+        git pull --rebase origin main || echo "No updates available"
+        git stash pop || echo "No stashed changes"
 
-    - name: Check if both folders have files and commit changes
+    - name: Check if Input_data folder has files and commit changes
       run: |
         if [ -d "Input_data" ] && [ "$(ls -A Input_data)" ]; then
           echo "Folders with files detected, committing changes"
           git add .
           git commit -m "Add new stats/plots folders and files created by Python script" || echo "No changes to commit"
-          git push origin main --force-with-lease
+          git push origin main
         else
           echo "Folders do not have files, skipping commit"
         fi
