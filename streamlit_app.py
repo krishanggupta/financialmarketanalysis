@@ -210,7 +210,7 @@ for t in unique_instruments:
                 t_i_pair.append(t+'_'+i)
 for ti in t_i_pair:
         if ti in [f.file_name for f in os.scandirectory(Intraday_data_files)]:
-                st.text(f'Available Combination: {t_i.split('_')[0]}:{t_i.split('_')[1]})
+                st.text(f'Available Combination: {t_i.split('_')[0]}:{t_i.split('_')[1]}')
                 
 st.sidebar.text(
 #Define tabs:
