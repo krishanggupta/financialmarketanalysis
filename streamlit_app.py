@@ -209,7 +209,7 @@ for t in unique_instruments:
         for i in unique_intervals:
                 t_i_pair.append(t+'_'+i)
 for ti in t_i_pair:
-        if ti in [f.file_name for f in os.scandir(Intraday_data_files)]:
+        if ti in [f.name for f in os.scandir(Intraday_data_files)]:
                 st.sidebar.text(f'Available Combination: {t_i.split('_')[0]}:{t_i.split('_')[1]}')
                 
 
