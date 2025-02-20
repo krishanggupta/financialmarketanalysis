@@ -1,7 +1,7 @@
 Volatility of Returns Statistic,"(Session:Asia 18-24 ET, Interval:15m, Symbol:ZN)"
 count,62.0
-mean,3.600806451612903
-std,1.9718613145685782
+mean,3.625
+std,1.9453338455113054
 min,0.5
 10%,1.75
 25%,2.25
@@ -10,5 +10,5 @@ min,0.5
 95%,7.712499999999997
 99%,9.5425
 max,10.0
-skewness,1.3914031675680234
-kurtosis,2.113644854539699
+skewness,1.4581896936228633
+kurtosis,2.249168332565682
