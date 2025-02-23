@@ -13,7 +13,12 @@ def _add_target_tz_col(intraday_csv,current_tz='UTC',final_tz='US/Eastern',ticke
     intraday_csv[new_col]=intraday_csv.index
 
     if 'd' in tickerinterval: #Add time to DATE and make it "DATE + 23:59:00" if interval >=1d
-            intraday_csv=ManipulateTimezone.add_time_for_d_intervals(intraday_csv,new_col)
+            if len(str(intraday_csv[intraday_csv.columns[0]].iloc[0]))>=10:
+                pass
+                #time also mentioned
+            else:
+                #time not mentioned, assume day concluded, consider 11.59pm when converting to target timezone
+                intraday_csv=ManipulateTimezone.add_time_for_d_intervals(intraday_csv,new_col)
     
     MyTimezoneObject=ManipulateTimezone(intraday_csv)
     intraday_target_tz_csv=MyTimezoneObject.change_timezone(checkdf=intraday_csv,
