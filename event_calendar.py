@@ -425,11 +425,11 @@ def MergeCalendar_helper(olddf,newdf):
     olddf.rename(columns={'DATE':'DATETIME'},inplace=True)
     newdf.rename(columns={'DATE':'DATETIME'},inplace=True)
     if 'COUNTRY' in olddf.columns:
-        olddf=olddf[['DATETIME','COUNTRY','EVENTS','ACTUAL','CONSENSUS','FORECAST','TIER']]
-        newdf=newdf[['DATETIME','COUNTRY','EVENTS','ACTUAL','CONSENSUS','FORECAST','TIER']]
+        olddf=olddf[['DATETIME','COUNTRY','EVENTS','ACTUAL','PREVIOUS','CONSENSUS','FORECAST','TIER']]
+        newdf=newdf[['DATETIME','COUNTRY','EVENTS','ACTUAL','PREVIOUS','CONSENSUS','FORECAST','TIER']]
     else:
-        olddf=olddf[['DATETIME','EVENTS','ACTUAL','CONSENSUS','FORECAST','TIER']]
-        newdf=newdf[['DATETIME','EVENTS','ACTUAL','CONSENSUS','FORECAST','TIER']]
+        olddf=olddf[['DATETIME','EVENTS','ACTUAL','PREVIOUS','CONSENSUS','FORECAST','TIER']]
+        newdf=newdf[['DATETIME','EVENTS','ACTUAL','PREVIOUS','CONSENSUS','FORECAST','TIER']]
 
     finalcsv = pd.concat([olddf,newdf], ignore_index=True,axis=0)
     print('final:')
