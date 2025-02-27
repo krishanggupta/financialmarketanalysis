@@ -31,8 +31,8 @@ jobs:
 
     - name: Configure Git user
       run: |
-        git config --global user.name "krishangguptafibonacciresearch"  # Replace with your name
-        git config --global user.email "krishanggupta@fibonacciresearch.in"  # Replace with your email
+        git config --global user.name "krishanggupta"  # Replace with your name
+        git config --global user.email "krishanggupta.kg@gmail.com"  # Replace with your email
 
     - name: Pull latest changes to integrate remote updates
       run: |
