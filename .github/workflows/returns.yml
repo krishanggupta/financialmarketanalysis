@@ -1,4 +1,4 @@
-name: Hourly Run Distribution of Returns and Streamlit plots display
+name: Hourly Run Distribution of Returns and Streamlit Plots Display
 
 on:
   push:
@@ -12,42 +12,55 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Free up disk space
+      run: |
+        echo "Checking disk space before cleanup..."
+        df -h
+        sudo apt-get clean
+        sudo apt-get autoremove -y
+        sudo rm -rf /usr/local/lib/android
+        docker system prune -af
+        sudo rm -rf /opt/hostedtoolcache
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /usr/local/share/chromium
+        sudo rm -rf /usr/local/share/powershell
+        echo "Checking disk space after cleanup..."
+        df -h
+
     - name: Check out repository
       uses: actions/checkout@v3  # Use v3 for the latest version
       with:
-        fetch-depth: 0  # Fetch the full history to resolve remote conflicts
+        fetch-depth: 0  
 
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.12.2'  # Use the specific version of Python you need
+        python-version: '3.12'  # Use pre-installed cached version
 
     - name: Install dependencies manually
       run: |
-        pip install yfinance pandas numpy matplotlib seaborn scipy openpyxl selenium tzlocal
+        pip install --no-cache-dir yfinance pandas numpy matplotlib seaborn scipy openpyxl selenium tzlocal
 
     - name: Run Python script
       run: python returns_main.py  # Replace with your actual Python script name
 
     - name: Configure Git user
       run: |
-        git config --global user.name "krishanggupta"  # Replace with your name
-        git config --global user.email "krishanggupta.kg@gmail.com"  # Replace with your email
+        git config --global user.name "krishanggupta"
+        git config --global user.email "krishanggupta.kg@gmail.com"
 
-    - name: Pull latest changes to integrate remote updates
+    - name: Pull latest changes
       run: |
-        git pull origin main || echo "No changes to pull"
+        git fetch origin main
+        git pull --rebase origin main || echo "No changes available"
 
-    - name: Check if both folders have files and commit changes
+    - name: Check if Intraday_data_files_stats_and_plots_folder has files and commit changes
       run: |
-        # Check if folders exist and contain files
         if [ -d "Intraday_data_files_stats_and_plots_folder" ] && [ "$(ls -A Intraday_data_files_stats_and_plots_folder)" ]; then
-          echo "Folders with files detected, committing changes"
+          echo "Files detected, committing changes..."
           git add .
-          git commit -m "Add new stats/plots folders and files created by Python script" || echo "No changes to commit"
-          git push origin main --force-with-lease
+          git commit -m "Automated update of Intraday_data_files_stats_and_plots_folder" || echo "No changes to commit"
+          git push origin main
         else
-          echo "Folders do not have files, skipping commit"
+          echo "No new files detected, skipping commit"
         fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
