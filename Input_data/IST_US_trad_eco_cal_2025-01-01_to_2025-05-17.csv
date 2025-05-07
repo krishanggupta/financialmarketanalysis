@@ -2094,6 +2094,7 @@ DATETIME,EVENTS,ACTUAL,PREVIOUS,CONSENSUS,FORECAST,TIER
 2025-05-07 16:30:00+05:30,MBA Purchase IndexMAY/02,162.8,146.6,,,3.0
 2025-05-07 18:30:00+05:30,Used Car Prices MoMAPR,2.7%,-0.7%,,,3.0
 2025-05-07 18:30:00+05:30,Used Car Prices YoYAPR,4.9%,-0.2%,,,3.0
+<<<<<<< Updated upstream
 2025-05-07 20:00:00+05:30,EIA Refinery Crude Runs ChangeMAY/02,,0.189M,,,3.0
 2025-05-07 20:00:00+05:30,EIA Heating Oil Stocks ChangeMAY/02,,0.252M,,,3.0
 2025-05-07 20:00:00+05:30,EIA Gasoline Production ChangeMAY/02,,-0.616M,,,3.0
@@ -2104,6 +2105,18 @@ DATETIME,EVENTS,ACTUAL,PREVIOUS,CONSENSUS,FORECAST,TIER
 2025-05-07 20:00:00+05:30,EIA Gasoline Stocks ChangeMAY/02,,-4.002M,-1.5M,,2.0
 2025-05-07 20:00:00+05:30,EIA Distillate Fuel Production ChangeMAY/02,,-0.017M,,,3.0
 2025-05-07 20:00:00+05:30,EIA Gasoline Stocks ChangeMAY/02,,-4.002M,-1.5M,,2.0
+=======
+2025-05-07 20:00:00+05:30,EIA Refinery Crude Runs ChangeMAY/02,-0.007M,0.189M,,,3.0
+2025-05-07 20:00:00+05:30,EIA Heating Oil Stocks ChangeMAY/02,0.123M,0.252M,,,3.0
+2025-05-07 20:00:00+05:30,EIA Gasoline Production ChangeMAY/02,0.253M,-0.616M,,,3.0
+2025-05-07 20:00:00+05:30,EIA Distillate Stocks ChangeMAY/02,-1.107M,0.937M,-1.4M,,3.0
+2025-05-07 20:00:00+05:30,EIA Distillate Fuel Production ChangeMAY/02,0.041M,-0.017M,,,3.0
+2025-05-07 20:00:00+05:30,EIA Cushing Crude Oil Stocks ChangeMAY/02,-0.74M,0.682M,,,3.0
+2025-05-07 20:00:00+05:30,EIA Crude Oil Imports ChangeMAY/02,0.673M,-0.663M,,,3.0
+2025-05-07 20:00:00+05:30,EIA Gasoline Stocks ChangeMAY/02,0.188M,-4.002M,-1.5M,,2.0
+2025-05-07 20:00:00+05:30,EIA Distillate Fuel Production ChangeMAY/02,,-0.017M,,,3.0
+2025-05-07 20:00:00+05:30,EIA Gasoline Stocks ChangeMAY/02,,-4.002M,-1.5M,,2.0
+>>>>>>> Stashed changes
 2025-05-07 20:00:00+05:30,EIA Crude Oil Stocks ChangeMAY/02,,-2.696M,-2.5M,,2.0
 2025-05-07 20:00:00+05:30,EIA Refinery Crude Runs ChangeMAY/02,,0.189M,,,3.0
 2025-05-07 20:00:00+05:30,Used Car Prices MoMAPR,,-0.7%,,,3.0
@@ -2112,7 +2125,11 @@ DATETIME,EVENTS,ACTUAL,PREVIOUS,CONSENSUS,FORECAST,TIER
 2025-05-07 20:00:00+05:30,EIA Gasoline Production ChangeMAY/02,,-0.616M,,,3.0
 2025-05-07 20:00:00+05:30,EIA Cushing Crude Oil Stocks ChangeMAY/02,,0.682M,,,3.0
 2025-05-07 20:00:00+05:30,EIA Heating Oil Stocks ChangeMAY/02,,0.252M,,,3.0
+<<<<<<< Updated upstream
 2025-05-07 20:00:00+05:30,EIA Crude Oil Stocks ChangeMAY/02,,-2.696M,-1.7M,,2.0
+=======
+2025-05-07 20:00:00+05:30,EIA Crude Oil Stocks ChangeMAY/02,-2.032M,-2.696M,-1.7M,,2.0
+>>>>>>> Stashed changes
 2025-05-07 20:00:00+05:30,Used Car Prices YoYAPR,,-0.2%,,,3.0
 2025-05-07 21:00:00+05:30,Used Car Prices MoMAPR,,-0.7%,,,3.0
 2025-05-07 21:00:00+05:30,Used Car Prices YoYAPR,,-0.2%,,,3.0
@@ -2234,7 +2251,7 @@ DATETIME,EVENTS,ACTUAL,PREVIOUS,CONSENSUS,FORECAST,TIER
 2025-05-14 20:00:00+05:30,EIA Cushing Crude Oil Stocks ChangeMAY/09,,,,,3.0
 2025-05-14 20:00:00+05:30,EIA Crude Oil Imports ChangeMAY/09,,,,,3.0
 2025-05-14 20:00:00+05:30,EIA Gasoline Stocks ChangeMAY/09,,,,,2.0
-2025-05-14 20:00:00+05:30,EIA Crude Oil Stocks ChangeMAY/09,,,,,2.0
+2025-05-14 20:00:00+05:30,EIA Crude Oil Stocks ChangeMAY/09,,-2.032M,,,2.0
 2025-05-14 20:00:00+05:30,EIA Gasoline Production ChangeMAY/09,,,,,3.0
 2025-05-14 20:00:00+05:30,EIA Gasoline Stocks ChangeMAY/09,,,,,2.0
 2025-05-14 21:00:00+05:30,17-Week Bill Auction,,,,,3.0
